@@ -1,0 +1,1048 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="A field guide to the Eastern Ghats Naturalist Workshop batch at Bamboo Rustles, Oct 2026.">
+<meta name="robots" content="noindex">
+<title>The Tribe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Caveat:wght@400;600&family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+/* Layout: a field notebook on graph paper. People are paper specimen tags; the board is sticky notes the group writes. */
+:root{
+  --bg:#e9e7df; --grid:rgba(60,70,60,.09); --ink:#26231f; --muted:#5f5a50;
+  --ochre:#c9860f; --ochre-soft:rgba(201,134,15,.16); --panel:rgba(255,253,246,.55);
+  --tag:#fbf7ee; --tag-ink:#2b2420; --tag-muted:#6a6155; --tag-edge:#2b2420; --accent-ink:#a0670a;
+  --n-explore:#fbe9a4; --n-observe:#cfe6f0; --n-question:#f6cfd6; --n-debate:#d6ebc4; --n-plan:#f3d9b8;
+  --display:'Special Elite','Courier New',monospace;
+  --hand:'Caveat','Segoe Print','Comic Sans MS',cursive;
+  --body:'Atkinson Hyperlegible',system-ui,-apple-system,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#181a17; --grid:rgba(230,225,210,.06); --ink:#ece6d8; --muted:#a8a091;
+  --ochre:#e5a63a; --ochre-soft:rgba(229,166,58,.18); --panel:rgba(255,255,255,.04); color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#181a17; --grid:rgba(230,225,210,.06); --ink:#ece6d8; --muted:#a8a091;
+  --ochre:#e5a63a; --ochre-soft:rgba(229,166,58,.18); --panel:rgba(255,255,255,.04); color-scheme:dark }
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px}
+.wrap{max-width:1180px;margin:0 auto;padding-block:32px 56px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:flex;flex-direction:column;gap:44px}
+.defs{position:absolute;width:0;height:0;overflow:hidden}
+button{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+
+header{display:grid;gap:10px}
+.eyebrow{font-family:var(--display);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(46px,8vw,88px);line-height:.95;margin:0}
+h1 span{background:linear-gradient(transparent 62%,var(--ochre-soft) 62%)}
+.lede{font-family:var(--hand);font-size:clamp(21px,2.6vw,26px);line-height:1.2;margin:0}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.toc a{font-family:var(--display);font-size:13px;color:var(--ink);text-decoration:none;border:1.5px solid var(--ink);border-radius:999px;padding:5px 12px}
+.toc a:hover{background:var(--ochre-soft)}
+.toc a.live{border-color:var(--ochre);background:var(--ochre-soft)}
+
+section{display:grid;gap:18px;scroll-margin-top:16px}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(24px,3.2vw,30px);margin:0;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+h2 small{font-family:var(--hand);font-size:21px;color:var(--muted)}
+.fine{margin:0;font-size:13px;color:var(--muted)}
+
+/* tags */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:24px 20px;align-items:start}
+.tag{min-width:0;perspective:1400px}
+.tag:nth-child(3n+1){transform:rotate(-.8deg)} .tag:nth-child(3n+2){transform:rotate(.5deg)}
+.flip{display:grid;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.3,.7,.2,1);cursor:pointer}
+.flip.on{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--tag);color:var(--tag-ink);border:1.5px solid var(--tag-edge);
+  border-radius:4px 4px 14px 14px;box-shadow:0 10px 24px -14px rgba(0,0,0,.35);padding:20px 18px 12px;position:relative;display:flex;flex-direction:column;gap:6px}
+.back{transform:rotateY(180deg);gap:8px}
+.hole{position:absolute;top:9px;left:50%;width:13px;height:13px;margin-left:-6.5px;border-radius:50%;border:1.5px solid var(--tag-edge);background:var(--bg)}
+.face svg{width:100%;height:auto;display:block}
+svg .t{font-family:var(--display);fill:#2b2420} svg .h{font-family:var(--hand);fill:#2b2420}
+.meta{display:grid;gap:2px}
+.meta h3{font-family:var(--display);font-weight:400;font-size:22px;letter-spacing:.06em;text-transform:uppercase;margin:0}
+.role{font-family:var(--display);font-size:14px;margin:0}
+.role i{font-family:var(--hand);font-size:19px}
+.lines{font-family:var(--hand);font-size:20px;line-height:1.2;margin:4px 0}
+.ask{font-size:12.5px;margin:0;color:var(--tag-muted)}
+.ask b{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.08em;color:var(--tag-ink);margin-right:4px}
+.turn{all:unset;cursor:pointer;margin-top:auto;align-self:flex-end;font-family:var(--display);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);padding:8px 0 2px}
+.turn:focus-visible{outline:3px solid var(--ochre)}
+.backname{font-family:var(--display);font-size:19px;margin:12px 0 0;text-transform:uppercase;letter-spacing:.06em}
+dl{margin:0;display:grid;gap:3px}
+dt{font-family:var(--display);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);margin-top:8px}
+dd{margin:0;font-family:var(--hand);font-size:21px;line-height:1.2}
+.works{display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.work{all:unset;cursor:pointer;font-family:var(--body);font-size:13px;font-weight:700;color:var(--tag-ink);background:#fbe9a4;border:1.5px solid var(--tag-edge);border-radius:4px;padding:4px 8px;line-height:1.3}
+.work:hover{background:#f6d978}
+.work:focus-visible{outline:3px solid var(--ochre)}
+.crewrow{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.crew{margin:0;display:flex;gap:10px;align-items:center;background:var(--tag);color:var(--tag-ink);border:1.5px dashed var(--tag-edge);border-radius:12px;padding:8px 12px 8px 6px;min-width:0}
+.crew svg{width:72px;flex:none}
+.crew figcaption{display:grid;gap:1px;min-width:0}
+.crew b{font-family:var(--display);font-weight:400;text-transform:uppercase;letter-spacing:.06em;font-size:15px}
+.crew span{font-size:11px;color:var(--tag-muted);text-transform:uppercase;letter-spacing:.08em}
+.crew em{font-family:var(--hand);font-style:normal;font-size:18px;line-height:1.15}
+
+/* species */
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{cursor:pointer;font-size:14px;border:1.5px solid var(--ink);background:transparent;border-radius:999px;padding:5px 12px;display:inline-flex;align-items:center;gap:6px}
+.chip svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.chip span{font-family:var(--display);font-size:12px;opacity:.7}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.splist{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:10px}
+.sp{display:grid;justify-items:center;gap:4px;text-align:center;padding:10px 6px;border:1.5px solid var(--ink);border-radius:8px;min-width:0}
+.sp svg{width:38px;height:38px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sp span{font-size:13px;line-height:1.2}
+
+
+.cats{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(132px,1fr));gap:10px}
+.cats li{display:flex}
+.cat{cursor:pointer;width:100%;height:100%;align-content:start;display:grid;justify-items:center;gap:4px;padding:12px 8px;border:1.5px solid var(--ink);border-radius:10px;background:transparent;text-align:center}
+.cat svg{width:40px;height:40px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cat b{font-family:var(--display);font-weight:400;font-size:14px;line-height:1.2}
+.cat .cnt{font-size:12px;color:var(--muted)}
+.cat[aria-expanded="true"]{background:var(--ink);color:var(--bg)}
+.cat[aria-expanded="true"] .cnt{color:var(--bg);opacity:.75}
+.catpanel{border:1.5px solid var(--ink);border-radius:10px;padding:14px;display:grid;gap:12px;background:var(--panel)}
+.names{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.nm{cursor:pointer;border:1.5px solid var(--ink);background:transparent;border-radius:999px;padding:4px 11px;font-size:14px}
+.nm.added{border-style:dashed}
+.nm sup{font-size:10px;color:var(--accent-ink);margin-left:3px}
+.nm[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.nm[aria-pressed="true"] sup{color:var(--bg)}
+.spdetail{display:grid;gap:8px}
+.spdetail h3{font-family:var(--display);font-weight:400;font-size:18px;margin:0}
+.spnotes{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.spnotes li{background:var(--n-explore);color:var(--tag-ink);border-radius:2px;padding:6px 10px;font-family:var(--hand);font-size:20px;line-height:1.2;overflow-wrap:anywhere}
+.spnotes li.k-pattern{background:var(--n-observe)} .spnotes li.k-family{background:var(--n-debate)} .spnotes li.k-unique{background:var(--n-question)}
+.spnotes li small{display:block;font-family:var(--display);font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.spempty{margin:0;font-size:14px;color:var(--muted)}
+.spadd{display:flex;flex-wrap:wrap;gap:8px}
+.spadd .add{justify-self:start;color:var(--ink);border:1.5px dashed var(--ink);border-radius:4px;padding:6px 10px}
+/* board */
+#board{background:var(--panel);border:1.5px solid var(--ink);border-radius:10px;padding:16px;gap:14px}
+.legend{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend i{width:14px;height:14px;border:1px solid var(--tag-edge);border-radius:2px;display:inline-block}
+.cols{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;align-items:start}
+.col{display:grid;gap:8px;min-width:0;border-top:3px solid var(--ink);padding-top:8px}
+.col h3{font-family:var(--display);font-weight:400;font-size:16px;letter-spacing:.06em;text-transform:uppercase;margin:0}
+.note{background:var(--n-explore);color:var(--tag-ink);border-radius:2px;box-shadow:0 6px 12px -8px rgba(0,0,0,.45);padding:8px 10px;min-width:0}
+.note:nth-child(odd){transform:rotate(-.7deg)} .note:nth-child(even){transform:rotate(.6deg)}
+.note[open]{transform:none}
+.note.k-observe{background:var(--n-observe)} .note.k-question{background:var(--n-question)} .note.k-debate{background:var(--n-debate)} .note.k-plan{background:var(--n-plan)}
+.note summary{cursor:pointer;list-style:none;font-family:var(--hand);font-size:21px;line-height:1.15}
+.note summary::-webkit-details-marker{display:none}
+.note .kind{display:block;font-family:var(--display);font-size:10px;letter-spacing:.12em;text-transform:uppercase;opacity:.7;margin-bottom:2px}
+.note .body{font-size:14px;display:grid;gap:6px;margin-top:6px;overflow-wrap:anywhere}
+.note .body p{margin:0;white-space:pre-line}
+.note a{color:var(--tag-ink);font-weight:700}
+.nactions{display:flex;gap:10px;flex-wrap:wrap}
+.nactions button,.add{cursor:pointer;background:none;border:0;padding:2px 0;font-family:var(--display);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink)}
+.col .add{justify-self:start;color:var(--ink);border:1.5px dashed var(--ink);border-radius:4px;padding:6px 10px}
+.nform{display:grid;gap:6px;background:var(--tag);color:var(--tag-ink);border:1.5px solid var(--tag-edge);border-radius:6px;padding:10px}
+.nform label{font-size:12px;color:var(--tag-muted)}
+.nform input,.nform textarea,.nform select{font:inherit;font-size:16px;padding:6px 8px;border:1.5px solid var(--tag-edge);border-radius:4px;background:#fffdf6;color:var(--tag-ink);width:100%}
+.nform .row{display:flex;gap:8px}
+.nform .row button{cursor:pointer;font-family:var(--display);font-size:13px;border-radius:4px;padding:7px 12px;border:1.5px solid var(--tag-edge);background:transparent;color:var(--tag-ink)}
+.nform .row .save{background:var(--tag-ink);color:var(--tag)}
+.bstatus{margin:0;font-size:13px;color:var(--muted)}
+
+/* shelf */
+.shelfrow{list-style:none;margin:0;padding:0 2px 0;display:flex;align-items:flex-end;gap:4px;overflow-x:auto;border-bottom:6px solid var(--ink);min-height:200px}
+.spine{all:unset;cursor:pointer;display:flex;align-items:center;justify-content:center;width:34px;height:var(--h);background:var(--c);color:#f7f1e3;border-radius:3px 3px 0 0;box-shadow:inset -4px 0 0 rgba(0,0,0,.18)}
+.spine span{writing-mode:vertical-rl;transform:rotate(180deg);font-family:var(--display);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-height:calc(var(--h) - 14px)}
+.spine[aria-expanded="true"]{transform:translateY(-10px)}
+.spine:focus-visible{outline:3px solid var(--ochre)}
+.detail{margin:0;font-size:15px;min-height:1.5em}
+.detail b{font-family:var(--display);font-weight:400}
+.lrow{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.lchip{cursor:pointer;border:1.5px solid var(--ink);background:transparent;border-radius:4px;padding:6px 10px;font-size:14px}
+.lchip[aria-expanded="true"]{background:var(--ink);color:var(--bg)}
+.detail a{color:var(--ink);text-decoration-color:var(--ochre);text-underline-offset:3px}
+
+/* still to come */
+.soon{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.soon li{border:1.5px solid var(--ink);border-radius:4px;padding:12px 14px;display:grid;gap:4px;min-width:0}
+.soon b{font-family:var(--display);font-weight:400;font-size:17px}
+.soon span{font-family:var(--hand);font-size:20px;line-height:1.2;color:var(--muted)}
+.soon .dark{background:#1b1d1a;color:#ece6d8;border-color:#1b1d1a}
+.soon .dark span{color:#c9c1b0}
+footer{font-family:var(--hand);font-size:19px;color:var(--muted);border-top:1px dashed var(--muted);padding-top:12px}
+
+/* piece dialog */
+dialog{border:1.5px solid var(--tag-edge);border-radius:8px;background:var(--tag);color:var(--tag-ink);padding:0;width:min(720px,calc(100vw - 32px));max-height:calc(100vh - 48px)}
+dialog::backdrop{background:rgba(20,18,15,.55)}
+.dbar{position:sticky;top:0;display:flex;justify-content:flex-end;background:var(--tag);padding:8px 10px 0}
+.dbar button{cursor:pointer;background:none;border:1.5px solid var(--tag-edge);border-radius:4px;font-family:var(--display);font-size:12px;padding:5px 10px;color:var(--tag-ink)}
+.dbody{padding:0 22px 24px;display:grid;gap:10px}
+.dbody h2{font-size:24px}
+.dwho{margin:0;font-family:var(--hand);font-size:22px}
+.dbody img{width:100%;height:auto;border-radius:2px}
+.poem{font-family:var(--hand);font-size:22px;line-height:1.3;display:grid;gap:14px;border-left:3px solid var(--ochre);padding-left:14px}
+.poem p,.story p{margin:0}
+.story{display:grid;gap:10px;font-size:15px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px}
+.desc{margin:0;font-size:15px}
+.slot{border:1.5px dashed var(--tag-muted);border-radius:4px;padding:28px 12px;text-align:center;font-family:var(--hand);font-size:20px;color:var(--tag-muted)}
+@media (prefers-reduced-motion: reduce){.flip{transition:none}}
+@media (max-width:420px){.tag,.note{transform:none!important}}
+</style>
+<style>body{margin:0}img{max-width:100%}</style>
+</head>
+<body>
+
+
+<svg class="defs" aria-hidden="true" focusable="false"><defs>
+<filter id="wob" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="4"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+<pattern id="plaid" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#3f5f8a"/><rect x="0" y="8" width="22" height="6" fill="#2e4870" opacity=".8"/><rect x="8" y="0" width="6" height="22" fill="#2e4870" opacity=".8"/><line x1="0" y1="11" x2="22" y2="11" stroke="#7d9cc4" stroke-width="1"/></pattern>
+</defs></svg>
+<div class="wrap">
+ <header>
+  <p class="eyebrow">Eastern Ghats Naturalist Workshop · Bamboo Rustles · 15–18 Oct 2026</p>
+  <h1><span>The Tribe</span></h1>
+  <p class="lede">Strangers who came for the geckos and stayed for each other.</p>
+  <nav class="toc" aria-label="Sections"><a href="#g">The tribe</a><a href="#species">What we saw</a><a class="live" href="#board">Rabbit holes · add yours</a><a href="#shelf">The shelf</a><a href="#soon">Still to come</a></nav>
+ </header>
+
+ <section aria-labelledby="g">
+  <h2 id="g">The guides</h2>
+  <div class="grid">
+<article class="tag" data-grp="guide">
+ <div class="flip" id="flip-surya">
+  <div class="face front">
+   <span class="hole" aria-hidden="true"></span>
+   <svg viewBox="0 0 330 440" role="img" aria-label="Doodle of Surya">
+ <g filter="url(#wob)" stroke="#2b2420" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(15,10)">
+  <!-- legs -->
+  <rect x="118" y="335" width="22" height="62" fill="#8d5f40"/><rect x="162" y="335" width="22" height="62" fill="#8d5f40"/>
+  <path d="M108 398 h38 q4 14 -6 16 h-34 q-6 -8 2 -16z" fill="#6b4a2e"/><path d="M156 398 h38 q8 8 2 16 h-34 q-10 -2 -6 -16z" fill="#6b4a2e"/>
+  <path d="M116 404 l22 0 M164 404 l22 0" stroke-width="2"/>
+  <!-- shorts -->
+  <path d="M106 292 L196 292 L200 350 L158 350 L151 322 L144 350 L102 350 Z" fill="#a9bfa8"/>
+  <!-- shirt -->
+  <path d="M98 205 Q151 190 204 205 L210 300 L92 300 Z" fill="url(#plaid)"/>
+  <path d="M135 197 L151 225 L167 197" fill="#f4ecdb"/>
+  <line x1="151" y1="225" x2="151" y2="298" stroke-width="2"/>
+  <!-- left arm: rolled sleeve + clipboard -->
+  <path d="M98 208 Q80 232 80 262 L102 262 L108 225" fill="url(#plaid)"/>
+  <rect x="78" y="258" width="26" height="10" fill="#2e4870"/>
+  <path d="M82 268 Q84 300 112 300" fill="none" stroke-width="16" stroke="#2b2420"/>
+  <path d="M82 268 Q84 300 112 300" fill="none" stroke-width="10" stroke="#8d5f40"/>
+  <!-- clipboard -->
+  <g transform="rotate(-8 140 290)">
+   <rect x="104" y="250" width="70" height="86" rx="4" fill="#c9a36b"/>
+   <rect x="111" y="262" width="56" height="68" fill="#fffdf6" stroke-width="2"/>
+   <rect x="128" y="244" width="22" height="12" rx="3" fill="#888"/>
+  </g>
+  <!-- right arm: pointing up -->
+  <path d="M204 208 Q224 228 226 258 L206 262 L198 228" fill="url(#plaid)"/>
+  <rect x="204" y="254" width="24" height="10" fill="#2e4870" transform="rotate(-10 216 259)"/>
+  <path d="M216 264 L232 214" stroke-width="16"/><path d="M216 264 L232 214" stroke-width="10" stroke="#8d5f40"/>
+  <path d="M230 214 L236 190" stroke-width="7" stroke="#2b2420"/><path d="M230 214 L236 190" stroke-width="3" stroke="#8d5f40"/>
+  <rect x="210" y="246" width="16" height="10" rx="2" fill="#222" transform="rotate(-70 218 251)"/>
+  <!-- neck + head -->
+  <rect x="136" y="178" width="30" height="24" fill="#8d5f40"/>
+  <ellipse cx="92" cy="128" rx="10" ry="15" fill="#8d5f40"/><ellipse cx="210" cy="128" rx="10" ry="15" fill="#8d5f40"/>
+  <ellipse cx="151" cy="125" rx="60" ry="66" fill="#8d5f40"/>
+  <path d="M94 108 Q98 58 151 54 Q204 58 208 108 Q200 86 182 84 Q160 70 140 74 Q112 80 94 108 Z" fill="#1e1a17"/>
+  <path d="M92 124 Q93 190 151 198 Q209 190 210 124 Q204 154 188 160 Q170 148 151 152 Q132 148 114 160 Q98 154 92 124 Z" fill="#1e1a17"/>
+  <path d="M130 166 Q151 182 172 166 Q151 171 130 166 Z" fill="#fff" stroke-width="2.5"/>
+  <path d="M118 120 q10 -8 20 0 M164 120 q10 -8 20 0" fill="none" stroke-width="3"/>
+  <path d="M120 106 q10 -6 20 -2 M162 104 q10 -4 20 2" fill="none" stroke-width="4"/>
+  <path d="M151 128 q-6 14 4 16" fill="none" stroke-width="2.5"/>
+ </g>
+ <!-- clipboard text (unwobbled for legibility) -->
+ <g transform="translate(15,10) rotate(-8 140 290)">
+  <text x="116" y="280" class="t" font-size="8.5">HOMEWORK</text>
+  <text x="116" y="300" class="h" font-size="13">800 words</text>
+  <text x="116" y="318" class="h" font-size="12">due: yesterday</text>
+ </g>
+ <!-- speech bubble -->
+ <g transform="translate(205,30)">
+  <path d="M0 10 q0 -10 10 -10 h92 q10 0 10 10 v34 q0 10 -10 10 h-58 l-16 14 l2 -14 h-20 q-10 0 -10 -10z" fill="#fffdf6" stroke="#2b2420" stroke-width="2"/>
+  <text x="10" y="24" class="h" font-size="17">black dot?</text>
+  <text x="10" y="44" class="h" font-size="17">black baza.</text>
+ </g></svg>
+   <div class="meta">
+    <h3>Surya</h3>
+    <p class="role">The Mentor · <i>Magister omnividens</i></p>
+    <p class="lines">Runs eleven conversations at once without a gap. Waits for everyone to get their photo, then takes his own.</p>
+    <p class="ask"><b>Ask me about</b> raptors, snow leopards, homework</p>
+   </div>
+   <button class="turn" type="button" id="turn-surya" aria-controls="flip-surya">Field notes →</button>
+  </div>
+  <div class="face back">
+   <span class="hole" aria-hidden="true"></span>
+   <p class="backname">Surya</p>
+   <dl><dt>Field note</dt><dd>Over camp, a far-off raptor. Vibish saw a black dot. Surya saw a black baza.</dd><dt>Now</dt><dd>Naturalist, expedition leader and field-guide author. Last seen in Nepal, photographing what pandas eat this season.</dd><dt>Open door</dt><dd>A home in Masinagudi and one in Chennai, open to the lot of you.</dd></dl>
+   <button class="turn" type="button" id="turnback-surya" aria-controls="flip-surya">← Turn back</button>
+  </div>
+ </div>
+</article>
+<article class="tag" data-grp="guide">
+ <div class="flip" id="flip-joel">
+  <div class="face front">
+   <span class="hole" aria-hidden="true"></span>
+   <svg viewBox="0 0 330 440" role="img" aria-label="Doodle of Joel">
+ <g filter="url(#wob)" stroke="#2b2420" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(15,10)">
+  <path d="M116 300 L192 300 L194 398 L160 398 L154 334 L148 398 L112 398 Z" fill="#2f3a46"/>
+  <path d="M104 398 h44 q4 14 -6 16 h-36 q-8 -6 -2 -16z" fill="#2b2b2b"/><path d="M158 398 h42 q8 8 2 16 h-38 q-10 -2 -6 -16z" fill="#2b2b2b"/>
+  <!-- hoodie -->
+  <path d="M94 206 Q151 188 208 206 L214 306 L88 306 Z" fill="#23262b"/>
+  <path d="M128 200 L151 236 L174 200" fill="#2e4a66"/>
+  <path d="M140 214 L138 258 M162 214 L164 258" stroke="#888" stroke-width="2"/>
+  <path d="M96 210 Q74 250 84 298" fill="none" stroke-width="22"/><path d="M96 210 Q74 250 84 298" fill="none" stroke-width="16" stroke="#23262b"/>
+  <circle cx="86" cy="304" r="9" fill="#7a4e33"/>
+  <!-- right arm raised with spider on thread -->
+  <path d="M206 210 Q236 200 240 156" fill="none" stroke-width="22"/><path d="M206 210 Q236 200 240 156" fill="none" stroke-width="16" stroke="#23262b"/>
+  <circle cx="241" cy="148" r="9" fill="#7a4e33"/>
+  <path d="M244 140 L248 128" stroke-width="5"/><path d="M244 140 L248 128" stroke-width="2" stroke="#7a4e33"/>
+  <path d="M248 130 L250 200" stroke="#9a948a" stroke-width="1.2"/>
+  <g transform="translate(250,208)"><ellipse rx="7" ry="9" fill="#2b2420"/><circle cy="-10" r="5" fill="#2b2420"/>
+   <path d="M-5 -4 l-12 -8 M-6 2 l-14 -2 M-5 6 l-12 8 M5 -4 l12 -8 M6 2 l14 -2 M5 6 l12 8" stroke-width="2"/></g>
+  <!-- head -->
+  <rect x="137" y="176" width="28" height="26" fill="#7a4e33"/>
+  <ellipse cx="94" cy="130" rx="9" ry="14" fill="#7a4e33"/><ellipse cx="208" cy="130" rx="9" ry="14" fill="#7a4e33"/>
+  <ellipse cx="151" cy="126" rx="58" ry="64" fill="#7a4e33"/>
+  <path d="M94 116 Q96 62 151 58 Q206 62 208 116 Q198 84 151 82 Q104 84 94 116 Z" fill="#181412"/>
+  <path d="M190 74 Q226 70 222 104 Q216 88 196 90" fill="#181412"/>
+  <!-- glasses -->
+  <rect x="112" y="112" width="34" height="24" rx="6" fill="#ffffff" fill-opacity=".25"/><rect x="156" y="112" width="34" height="24" rx="6" fill="#ffffff" fill-opacity=".25"/>
+  <path d="M146 122 h10 M112 120 l-16 -4 M190 120 l16 -4" fill="none" stroke-width="3"/>
+  <circle cx="130" cy="125" r="4" fill="#2b2420" stroke="none"/><circle cx="172" cy="125" r="4" fill="#2b2420" stroke="none"/>
+  <path d="M110 152 Q112 186 151 192 Q190 186 192 152 Q172 166 151 164 Q130 166 110 152Z" fill="#2b231e" opacity=".55" stroke="none"/>
+  <path d="M132 162 Q151 178 172 160" fill="none" stroke-width="3.5"/>
+ </g>
+ <g transform="translate(30,30)">
+  <path d="M0 10 q0 -10 10 -10 h172 q10 0 10 10 v30 q0 10 -10 10 h-118 l-6 16 l-14 -16 h-34 q-10 0 -10 -10z" fill="#fffdf6" stroke="#2b2420" stroke-width="2"/>
+  <text x="12" y="32" class="h" font-size="20">first, count the eyes</text>
+ </g></svg>
+   <div class="meta">
+    <h3>Joel</h3>
+    <p class="role">The Spider Man · <i>Araneus autodidactus</i></p>
+    <p class="lines">Surya’s co-guide and the go-to man for every spider anyone spotted. Self-taught, and after dark, the best ghost stories in camp.</p>
+    <p class="ask"><b>Ask me about</b> spiders, ghost stories, elephants</p>
+   </div>
+   <button class="turn" type="button" id="turn-joel" aria-controls="flip-joel">Field notes →</button>
+  </div>
+  <div class="face back">
+   <span class="hole" aria-hidden="true"></span>
+   <p class="backname">Joel</p>
+   <dl><dt>Their work</dt><dd class="works"><a class="work" href="https://www.instagram.com/joel_sherjin/" target="_blank" rel="noopener">@joel_sherjin ↗</a></dd><dt>Field note</dt><dd>Ran a whole session on spiders and what makes them special. Lay under his car hunting a snake. It was a stick.</dd><dt>Now</dt><dd>Still identifying everyone’s spiders over WhatsApp, eye arrangement first.</dd><dt>Open door</dt><dd>Elephants and spiders on offer, after the dog test.</dd></dl>
+   <button class="turn" type="button" id="turnback-joel" aria-controls="flip-joel">← Turn back</button>
+  </div>
+ </div>
+</article>
+<article class="tag" data-grp="guide">
+ <div class="flip" id="flip-sachin">
+  <div class="face front">
+   <span class="hole" aria-hidden="true"></span>
+   <svg viewBox="0 0 330 440" role="img" aria-label="Doodle of Sachin">
+ <g filter="url(#wob)" stroke="#2b2420" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(15,10)">
+  <path d="M114 300 L192 300 L194 398 L160 398 L154 334 L148 398 L110 398 Z" fill="#b8a888"/>
+  <path d="M102 398 h44 q4 14 -6 16 h-36 q-8 -6 -2 -16z" fill="#5a4030"/><path d="M158 398 h42 q8 8 2 16 h-38 q-10 -2 -6 -16z" fill="#5a4030"/>
+  <!-- patterned shirt -->
+  <path d="M96 206 Q151 192 206 206 L212 306 L90 306 Z" fill="#33463f"/>
+  <g fill="#7f9a8a" stroke="none"><circle cx="116" cy="236" r="4"/><circle cx="140" cy="262" r="4"/><circle cx="182" cy="232" r="4"/><circle cx="170" cy="282" r="4"/><circle cx="120" cy="288" r="4"/><circle cx="196" cy="270" r="4"/><circle cx="154" cy="244" r="3"/></g>
+  <path d="M134 198 L151 222 L168 198" fill="#33463f"/><line x1="151" y1="222" x2="151" y2="304" stroke-width="2"/>
+  <path d="M116 206 L118 300 M186 206 L184 300" stroke="#6b4a2e" stroke-width="8"/><!-- left arm with book -->
+  <path d="M98 210 Q78 246 92 288" fill="none" stroke-width="20"/><path d="M98 210 Q78 246 92 288" fill="none" stroke-width="14" stroke="#33463f"/>
+  <g transform="rotate(-6 100 290)"><rect x="76" y="266" width="44" height="56" fill="#b0503a"/><path d="M82 272 v44" stroke="#f4ecdb" stroke-width="2"/></g>
+  <!-- right arm holding ticket out -->
+  <path d="M204 210 Q232 226 244 200" fill="none" stroke-width="20"/><path d="M204 210 Q232 226 244 200" fill="none" stroke-width="14" stroke="#33463f"/>
+  <circle cx="246" cy="194" r="9" fill="#9b6a48"/>
+  <g transform="translate(250,168)" stroke-width="2.5"><circle r="9" fill="none"/><path d="M6 6 l16 16 M16 16 l6 -4 M20 20 l5 -3"/><rect x="-14" y="-30" width="20" height="14" rx="4" fill="#3b4a3b"/></g>
+  <!-- head -->
+  <rect x="137" y="176" width="28" height="26" fill="#9b6a48"/>
+  <ellipse cx="94" cy="130" rx="9" ry="14" fill="#9b6a48"/><ellipse cx="208" cy="130" rx="9" ry="14" fill="#9b6a48"/>
+  <ellipse cx="151" cy="126" rx="58" ry="64" fill="#9b6a48"/>
+  <path d="M94 114 Q96 62 151 60 Q206 62 208 114 Q200 88 176 84 Q151 78 126 84 Q102 88 94 114 Z" fill="#4a4440"/>
+  <g stroke="#c9c3ba" stroke-width="2"><path d="M110 82 l6 6 M130 70 l4 8 M160 66 l2 8 M186 74 l-4 8 M100 98 l8 2"/></g>
+  <rect x="112" y="114" width="34" height="22" rx="4" fill="#1e1e1e" fill-opacity=".92"/><rect x="156" y="114" width="34" height="22" rx="4" fill="#1e1e1e" fill-opacity=".92"/>
+  <path d="M146 122 h10 M112 120 l-16 -4 M190 120 l16 -4" fill="none" stroke-width="3"/>
+  <path d="M118 118 l8 -2 M162 118 l8 -2" stroke="#fff" stroke-width="2"/>
+  <path d="M130 156 Q151 160 172 156" fill="none" stroke="#3a3330" stroke-width="6"/>
+  <path d="M134 168 Q151 180 168 168" fill="none" stroke-width="3.5"/>
+ </g>
+ <g transform="translate(30,30)">
+  <path d="M0 10 q0 -10 10 -10 h178 q10 0 10 10 v30 q0 10 -10 10 h-128 l-4 16 l-14 -16 h-32 q-10 0 -10 -10z" fill="#fffdf6" stroke="#2b2420" stroke-width="2"/>
+  <text x="12" y="32" class="h" font-size="20">durrr durrr durrr</text>
+ </g></svg>
+   <div class="meta">
+    <h3>Sachin</h3>
+    <p class="role">The Founder · <i>Hospes tatkalensis</i></p>
+    <p class="lines">Turned barren land beside a scrub forest into Bamboo Rustles. Arrives by gypsy, in cooling glasses.</p>
+    <p class="ask"><b>Ask me about</b> wildlife books, scuba, the road to Kuppam</p>
+   </div>
+   <button class="turn" type="button" id="turn-sachin" aria-controls="flip-sachin">Field notes →</button>
+  </div>
+  <div class="face back">
+   <span class="hole" aria-hidden="true"></span>
+   <p class="backname">Sachin</p>
+   <dl><dt>Field note</dt><dd>Rolled into the grassland third, in his own gypsy. Not a heroic entry, but fine.</dd><dt>Now</dt><dd>Founding director of Bamboo Rustles, 12 years of birding, herping and butterfly workshops. Reading African Silences on Surya’s tip.</dd><dt>Open door</dt><dd>Bamboo Rustles. Lunch is at two.</dd></dl>
+   <button class="turn" type="button" id="turnback-sachin" aria-controls="flip-sachin">← Turn back</button>
+  </div>
+ </div>
+</article>
+<article class="tag" data-grp="guide">
+ <div class="flip" id="flip-vishwa">
+  <div class="face front">
+   <span class="hole" aria-hidden="true"></span>
+   <svg viewBox="0 0 330 440" role="img" aria-label="Doodle of Vishwa">
+ <g filter="url(#wob)" stroke="#2b2420" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(-10,10)">
+  <!-- cycad --><g transform="translate(232,300)"><path d="M0 110 L-54 79" stroke="#3f6b22" stroke-width="3" fill="none"/><path d="M-19 99 l-11 4" stroke="#b5874a" stroke-width="3"/><path d="M-19 99 l-2 -12" stroke="#b5874a" stroke-width="3"/><path d="M-27 94 l-11 4" stroke="#b5874a" stroke-width="3"/><path d="M-27 94 l-2 -12" stroke="#b5874a" stroke-width="3"/><path d="M-35 90 l-11 4" stroke="#b5874a" stroke-width="3"/><path d="M-35 90 l-2 -12" stroke="#b5874a" stroke-width="3"/><path d="M-43 85 l-11 4" stroke="#b5874a" stroke-width="3"/><path d="M-43 85 l-2 -12" stroke="#b5874a" stroke-width="3"/><path d="M-51 81 l-11 4" stroke="#b5874a" stroke-width="3"/><path d="M-51 81 l-2 -12" stroke="#b5874a" stroke-width="3"/><path d="M0 110 L-48 49" stroke="#3f6b22" stroke-width="3" fill="none"/><path d="M-17 88 l-12 -0" stroke="#7fbf3f" stroke-width="3"/><path d="M-17 88 l3 -12" stroke="#7fbf3f" stroke-width="3"/><path d="M-24 79 l-12 -0" stroke="#7fbf3f" stroke-width="3"/><path d="M-24 79 l3 -12" stroke="#7fbf3f" stroke-width="3"/><path d="M-31 70 l-12 -0" stroke="#7fbf3f" stroke-width="3"/><path d="M-31 70 l3 -12" stroke="#7fbf3f" stroke-width="3"/><path d="M-38 61 l-12 -0" stroke="#7fbf3f" stroke-width="3"/><path d="M-38 61 l3 -12" stroke="#7fbf3f" stroke-width="3"/><path d="M-46 52 l-12 -0" stroke="#7fbf3f" stroke-width="3"/><path d="M-46 52 l3 -12" stroke="#7fbf3f" stroke-width="3"/><path d="M0 110 L-27 37" stroke="#3f6b22" stroke-width="3" fill="none"/><path d="M-9 84 l-11 -4" stroke="#7fbf3f" stroke-width="3"/><path d="M-9 84 l6 -10" stroke="#7fbf3f" stroke-width="3"/><path d="M-13 73 l-11 -4" stroke="#7fbf3f" stroke-width="3"/><path d="M-13 73 l6 -10" stroke="#7fbf3f" stroke-width="3"/><path d="M-17 62 l-11 -4" stroke="#7fbf3f" stroke-width="3"/><path d="M-17 62 l6 -10" stroke="#7fbf3f" stroke-width="3"/><path d="M-21 51 l-11 -4" stroke="#7fbf3f" stroke-width="3"/><path d="M-21 51 l6 -10" stroke="#7fbf3f" stroke-width="3"/><path d="M-25 40 l-11 -4" stroke="#7fbf3f" stroke-width="3"/><path d="M-25 40 l6 -10" stroke="#7fbf3f" stroke-width="3"/><path d="M0 110 L-3 32" stroke="#3f6b22" stroke-width="3" fill="none"/><path d="M-1 83 l-10 -7" stroke="#7fbf3f" stroke-width="3"/><path d="M-1 83 l9 -8" stroke="#7fbf3f" stroke-width="3"/><path d="M-1 71 l-10 -7" stroke="#7fbf3f" stroke-width="3"/><path d="M-1 71 l9 -8" stroke="#7fbf3f" stroke-width="3"/><path d="M-2 59 l-10 -7" stroke="#7fbf3f" stroke-width="3"/><path d="M-2 59 l9 -8" stroke="#7fbf3f" stroke-width="3"/><path d="M-2 48 l-10 -7" stroke="#7fbf3f" stroke-width="3"/><path d="M-2 48 l9 -8" stroke="#7fbf3f" stroke-width="3"/><path d="M-3 36 l-10 -7" stroke="#7fbf3f" stroke-width="3"/><path d="M-3 36 l9 -8" stroke="#7fbf3f" stroke-width="3"/><path d="M0 110 L21 35" stroke="#3f6b22" stroke-width="3" fill="none"/><path d="M8 84 l-7 -10" stroke="#7fbf3f" stroke-width="3"/><path d="M8 84 l11 -5" stroke="#7fbf3f" stroke-width="3"/><path d="M11 73 l-7 -10" stroke="#7fbf3f" stroke-width="3"/><path d="M11 73 l11 -5" stroke="#7fbf3f" stroke-width="3"/><path d="M14 61 l-7 -10" stroke="#7fbf3f" stroke-width="3"/><path d="M14 61 l11 -5" stroke="#7fbf3f" stroke-width="3"/><path d="M17 50 l-7 -10" stroke="#7fbf3f" stroke-width="3"/><path d="M17 50 l11 -5" stroke="#7fbf3f" stroke-width="3"/><path d="M20 39 l-7 -10" stroke="#7fbf3f" stroke-width="3"/><path d="M20 39 l11 -5" stroke="#7fbf3f" stroke-width="3"/><path d="M0 110 L44 45" stroke="#3f6b22" stroke-width="3" fill="none"/><path d="M15 87 l-4 -11" stroke="#7fbf3f" stroke-width="3"/><path d="M15 87 l12 -1" stroke="#7fbf3f" stroke-width="3"/><path d="M22 78 l-4 -11" stroke="#7fbf3f" stroke-width="3"/><path d="M22 78 l12 -1" stroke="#7fbf3f" stroke-width="3"/><path d="M28 68 l-4 -11" stroke="#7fbf3f" stroke-width="3"/><path d="M28 68 l12 -1" stroke="#7fbf3f" stroke-width="3"/><path d="M35 58 l-4 -11" stroke="#7fbf3f" stroke-width="3"/><path d="M35 58 l12 -1" stroke="#7fbf3f" stroke-width="3"/><path d="M41 49 l-4 -11" stroke="#7fbf3f" stroke-width="3"/><path d="M41 49 l12 -1" stroke="#7fbf3f" stroke-width="3"/><path d="M0 110 L50 74" stroke="#3f6b22" stroke-width="3" fill="none"/><path d="M18 97 l1 -12" stroke="#7fbf3f" stroke-width="3"/><path d="M18 97 l12 3" stroke="#7fbf3f" stroke-width="3"/><path d="M25 92 l1 -12" stroke="#7fbf3f" stroke-width="3"/><path d="M25 92 l12 3" stroke="#7fbf3f" stroke-width="3"/><path d="M33 86 l1 -12" stroke="#7fbf3f" stroke-width="3"/><path d="M33 86 l12 3" stroke="#7fbf3f" stroke-width="3"/><path d="M40 81 l1 -12" stroke="#7fbf3f" stroke-width="3"/><path d="M40 81 l12 3" stroke="#7fbf3f" stroke-width="3"/><path d="M48 75 l1 -12" stroke="#7fbf3f" stroke-width="3"/><path d="M48 75 l12 3" stroke="#7fbf3f" stroke-width="3"/><ellipse cx="0" cy="112" rx="16" ry="7" fill="#7a5a3a"/></g>
+  <!-- legs -->
+  <path d="M120 335 L116 398 L140 398 L146 335 Z" fill="#3a3a3a"/><path d="M160 335 L166 398 L190 398 L184 335 Z" fill="#3a3a3a"/>
+  <path d="M104 398 h40 q6 16 -4 18 h-36 q-8 -8 0 -18z" fill="#4a3a2a"/><path d="M162 398 h40 q8 10 0 18 h-36 q-10 -2 -4 -18z" fill="#4a3a2a"/>
+  <g fill="#8a6a42" stroke="none"><circle cx="114" cy="410" r="4"/><circle cx="132" cy="404" r="3"/><circle cx="180" cy="409" r="5"/><circle cx="196" cy="403" r="3"/><circle cx="125" cy="388" r="3"/></g>
+  <!-- tee -->
+  <path d="M96 210 Q151 194 206 210 L210 340 L94 340 Z" fill="#4d4946"/>
+  <path d="M96 210 L74 252 L96 262 L106 236" fill="#4d4946"/>
+  <path d="M206 210 L232 246 L214 260 L198 236" fill="#4d4946"/>
+  <!-- arms -->
+  <path d="M84 258 L92 318" stroke-width="16"/><path d="M84 258 L92 318" stroke-width="10" stroke="#7d5236"/>
+  <path d="M222 256 L262 300" stroke-width="16"/><path d="M222 256 L262 300" stroke-width="10" stroke="#7d5236"/>
+  <path d="M262 300 L274 312" stroke-width="7"/><path d="M262 300 L274 312" stroke-width="3" stroke="#7d5236"/>
+  <rect x="232" y="268" width="16" height="10" rx="2" fill="#222" transform="rotate(45 240 273)"/>
+  <!-- cord + pen -->
+  <path d="M132 204 L146 262 L170 204" fill="none" stroke-width="2"/>
+  <rect x="142" y="258" width="8" height="34" rx="3" fill="#ddd" stroke-width="2"/>
+  <!-- neck/head -->
+  <rect x="136" y="180" width="30" height="26" fill="#7d5236"/>
+  <ellipse cx="92" cy="132" rx="9" ry="14" fill="#7d5236"/><ellipse cx="210" cy="132" rx="9" ry="14" fill="#7d5236"/>
+  <ellipse cx="151" cy="130" rx="58" ry="62" fill="#7d5236"/>
+  <!-- curly hair cloud -->
+  <g fill="#181412">
+   <circle cx="100" cy="98" r="22"/><circle cx="118" cy="70" r="24"/><circle cx="148" cy="58" r="26"/><circle cx="180" cy="68" r="24"/><circle cx="203" cy="96" r="22"/>
+   <circle cx="92" cy="120" r="14"/><circle cx="210" cy="120" r="14"/><circle cx="150" cy="86" r="26"/>
+  </g>
+  <g fill="none" stroke="#5a504a" stroke-width="2"><path d="M110 70 a6 6 0 1 1 6 6 M146 52 a6 6 0 1 1 6 6 M182 64 a6 6 0 1 1 6 6 M100 96 a5 5 0 1 1 5 5 M200 92 a5 5 0 1 1 5 5"/></g>
+  <!-- beard -->
+  <path d="M95 132 Q96 186 151 192 Q206 186 207 132 Q200 156 186 160 Q151 150 116 160 Q102 156 95 132 Z" fill="#181412"/>
+  <path d="M136 168 Q151 176 166 166" fill="none" stroke="#f4ecdb" stroke-width="3"/>
+  <!-- eyes looking at plant -->
+  <circle cx="134" cy="128" r="4.5" fill="#2b2420" stroke="none"/><circle cx="178" cy="128" r="4.5" fill="#2b2420" stroke="none"/>
+  <path d="M124 116 q10 -4 18 0 M168 116 q10 -4 18 0" fill="none" stroke-width="3.5"/>
+  <ellipse cx="122" cy="146" rx="9" ry="4" fill="#c27a5a" stroke="none" opacity=".6"/><ellipse cx="190" cy="146" rx="9" ry="4" fill="#c27a5a" stroke="none" opacity=".6"/>
+ </g>
+ <g transform="translate(40,40)">
+  <path d="M0 10 q0 -10 10 -10 h108 q10 0 10 10 v26 q0 10 -10 10 h-70 l6 14 l-20 -14 h-24 q-10 0 -10 -10z" fill="#fffdf6" stroke="#2b2420" stroke-width="2"/>
+  <text x="12" y="30" class="h" font-size="20">. . . (knows)</text>
+ </g></svg>
+   <div class="meta">
+    <h3>Vishwa</h3>
+    <p class="role">The Quiet Naturalist · <i>Silentius omniscius</i></p>
+    <p class="lines">Bamboo Rustles’ own naturalist. Learnt it all in the field. Says little and always flips the right stone.</p>
+    <p class="ask"><b>Ask me about</b> this exact landscape</p>
+   </div>
+   <button class="turn" type="button" id="turn-vishwa" aria-controls="flip-vishwa">Field notes →</button>
+  </div>
+  <div class="face back">
+   <span class="hole" aria-hidden="true"></span>
+   <p class="backname">Vishwa</p>
+   <dl><dt>Their work</dt><dd class="works"><button class="work" type="button" data-piece="vishwa">Illustration: Flame lily</button></dd><dt>Field note</dt><dd>In the grassland, flipping stones with Arul, Shiva and Abhi for geckos, scorpions and skinks.</dd><dt>Now</dt><dd>Naturalist at Bamboo Rustles. Knows the hill better than most.</dd><dt>Open door</dt><dd>Find him on the next walk.</dd></dl>
+   <button class="turn" type="button" id="turnback-vishwa" aria-controls="flip-vishwa">← Turn back</button>
+  </div>
+ </div>
+</article></div>
+ </section>
+
+ <section aria-labelledby="b">
+  <h2 id="b">The batch <small>tap a tag for their work</small></h2>
+  <div class="grid">
+<article class="tag" data-grp="batch">
+ <div class="flip" id="flip-natasha">
+  <div class="face front">
+   <span class="hole" aria-hidden="true"></span>
+   <svg viewBox="0 0 330 440" role="img" aria-label="Doodle of Natasha">
+ <g filter="url(#wob)" stroke="#2b2420" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(15,10)">
+  <!-- legs / pants -->
+  <path d="M112 300 L196 300 L194 400 L160 400 L154 330 L148 400 L112 400 Z" fill="#a8916b"/>
+  <path d="M106 400 h44 q4 14 -6 16 h-36 q-8 -6 -2 -16z" fill="#3a3330"/><path d="M156 400 h42 q8 8 2 16 h-38 q-10 -2 -6 -16z" fill="#3a3330"/>
+  <!-- floral tank -->
+  <path d="M120 200 Q151 214 182 200 L198 306 L108 306 Z" fill="#1d1d1d"/>
+  <g stroke-width="1.5">
+   <circle cx="132" cy="236" r="9" fill="#e86a7a"/><circle cx="132" cy="236" r="3" fill="#f6d44a"/>
+   <circle cx="172" cy="258" r="11" fill="#d9475a"/><circle cx="172" cy="258" r="3.5" fill="#f6d44a"/>
+   <circle cx="146" cy="286" r="8" fill="#f29cb0"/><circle cx="186" cy="292" r="6" fill="#e86a7a"/>
+   <path d="M150 230 q8 -8 16 0 q-8 8 -16 0z M118 270 q8 -8 16 0 q-8 8 -16 0z M160 284 q6 -10 14 -4" fill="#4c9a5a"/>
+  </g>
+  <path d="M120 200 L124 186 M182 200 L178 186" stroke-width="5"/>
+  <!-- arms: one hand on hip, one holding flower up -->
+  <path d="M112 206 Q92 240 104 280 L118 300" fill="none" stroke-width="16"/><path d="M112 206 Q92 240 104 280 L118 300" fill="none" stroke-width="10" stroke="#a87150"/>
+  <path d="M192 206 Q214 186 226 150" fill="none" stroke-width="16"/><path d="M192 206 Q214 186 226 150" fill="none" stroke-width="10" stroke="#a87150"/>
+  <circle cx="227" cy="146" r="9" fill="#a87150"/>
+  <path d="M228 140 L236 96" stroke="#3f6b22" stroke-width="3"/>
+  <g transform="translate(237,88)" stroke-width="2"><circle r="8" cx="0" cy="-10" fill="#f6d44a"/><circle r="8" cx="10" cy="0" fill="#f6d44a"/><circle r="8" cx="0" cy="10" fill="#f6d44a"/><circle r="8" cx="-10" cy="0" fill="#f6d44a"/><circle r="6" fill="#d9475a"/></g>
+  <!-- monitor badge -->
+  <circle cx="134" cy="216" r="13" fill="#f6d44a" stroke-width="2.5"/>
+  <!-- head -->
+  <rect x="139" y="170" width="24" height="24" fill="#a87150"/>
+  <ellipse cx="151" cy="120" rx="54" ry="62" fill="#a87150"/>
+  <path d="M97 120 Q96 66 151 60 Q206 66 205 120 Q196 88 170 84 Q150 96 128 86 Q104 92 97 120 Z" fill="#181412"/>
+  <ellipse cx="151" cy="50" rx="24" ry="20" fill="#181412"/>
+  <path d="M138 44 q10 -6 22 2" fill="none" stroke="#5a504a" stroke-width="2"/>
+  <circle cx="99" cy="140" r="8" fill="none" stroke="#d4a838" stroke-width="3"/><circle cx="203" cy="140" r="8" fill="none" stroke="#d4a838" stroke-width="3"/>
+  <path d="M124 116 q10 -10 20 0 M158 116 q10 -10 20 0" fill="none" stroke-width="3.5"/>
+  <path d="M120 148 Q151 186 182 148 Z" fill="#fff" stroke-width="3"/>
+  <path d="M120 148 Q151 160 182 148" fill="none" stroke-width="2"/>
+  <ellipse cx="114" cy="140" rx="8" ry="4" fill="#d07a6a" stroke="none" opacity=".6"/><ellipse cx="188" cy="140" rx="8" ry="4" fill="#d07a6a" stroke="none" opacity=".6"/>
+ </g>
+ 
+ <g transform="translate(30,20)">
+  <path d="M0 10 q0 -10 10 -10 h132 q10 0 10 10 v30 q0 10 -10 10 h-90 l4 16 l-20 -16 h-26 q-10 0 -10 -10z" fill="#fffdf6" stroke="#2b2420" stroke-width="2"/>
+  <text x="12" y="32" class="h" font-size="20">homework. pronto!</text>
+ </g></svg>
+   <div class="meta">
+    <h3>Natasha</h3>
+    <p class="role">The Class Monitor · <i>Natasha mysorensis</i></p>
+    <p class="lines">Speaks fluent floral. Chases the homework. Puns regorously.</p>
+    <p class="ask"><b>Ask me about</b> plants, odonates, spiders</p>
+   </div>
+   <button class="turn" type="button" id="turn-natasha" aria-controls="flip-natasha">Field notes →</button>
+  </div>
+  <div class="face back">
+   <span class="hole" aria-hidden="true"></span>
+   <p class="backname">Natasha</p>
+   <dl><dt>Their work</dt><dd class="works"><button class="work" type="button" data-piece="natasha">Visual walk-through</button></dd><dt>Field note</dt><dd>“Is that an aristolochia??” Surya, from a distance: could be Ceropegia. It was. The whole grassland stopped.</dd><dt>Now</dt><dd>Illustrator behind There The Wild Things Are, leads nature walks for kids, and runs Bamboo Rustles’ social media.</dd><dt>Open door</dt><dd>A spare bed in Bangalore, any time.</dd></dl>
+   <button class="turn" type="button" id="turnback-natasha" aria-controls="flip-natasha">← Turn back</button>
+  </div>
+ </div>
+</article>
+<article class="tag" data-grp="batch">
+ <div class="flip" id="flip-vibish">
+  <div class="face front">
+   <span class="hole" aria-hidden="true"></span>
+   <svg viewBox="0 0 330 440" role="img" aria-label="Doodle of Vibish"><g filter="url(#wob)" stroke="#2b2420" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(15,10)">
+ <rect x="118" y="335" width="22" height="62" fill="#6e4630"/><rect x="162" y="335" width="22" height="62" fill="#6e4630"/>
+ <path d="M108 398 h38 q4 14 -6 16 h-34 q-6 -8 2 -16z" fill="#4a3a2a"/><path d="M156 398 h38 q8 8 2 16 h-34 q-10 -2 -6 -16z" fill="#4a3a2a"/>
+ <path d="M106 292 L196 292 L200 350 L158 350 L151 322 L144 350 L102 350 Z" fill="#c9ad86"/>
+ <path d="M96 206 Q151 192 206 206 L212 302 L90 302 Z" fill="#23314f"/>
+ <path d="M96 206 L90 302 L114 302 L116 210 Z" fill="#e0533b"/>
+ <path d="M206 206 L212 302 L188 302 L186 210 Z" fill="#d9b48f"/>
+ <path d="M100 212 Q86 250 120 262 L176 252" fill="none" stroke-width="16"/><path d="M100 212 Q86 250 120 262 L176 252" fill="none" stroke-width="10" stroke="#e0533b"/>
+ <circle cx="180" cy="251" r="9" fill="#6e4630"/>
+ <path d="M202 212 Q232 236 252 226" fill="none" stroke-width="16"/><path d="M202 212 Q232 236 252 226" fill="none" stroke-width="10" stroke="#d9b48f"/>
+ <circle cx="258" cy="224" r="9" fill="#6e4630"/>
+ <g transform="translate(262,208)" stroke-width="2">
+  <ellipse cx="-8" cy="-6" rx="12" ry="6" fill="#dfeef5" fill-opacity=".85" transform="rotate(-30 -8 -6)"/>
+  <ellipse cx="8" cy="-6" rx="12" ry="6" fill="#dfeef5" fill-opacity=".85" transform="rotate(30 8 -6)"/>
+  <ellipse cx="0" cy="4" rx="6" ry="11" fill="#f2c230"/>
+  <path d="M-6 2 h12 M-6 8 h12" stroke-width="3"/>
+  <circle cx="0" cy="-8" r="5" fill="#7a3a1a"/>
+ </g>
+ <rect x="137" y="176" width="28" height="26" fill="#6e4630"/><ellipse cx="94" cy="130" rx="9" ry="14" fill="#6e4630"/><ellipse cx="208" cy="130" rx="9" ry="14" fill="#6e4630"/><ellipse cx="151" cy="126" rx="58" ry="64" fill="#6e4630"/>
+ <path d="M93 118 Q94 60 151 56 Q208 60 209 118 Q200 80 151 76 Q102 80 93 118 Z" fill="#14100e"/>
+ <path d="M120 70 Q151 62 182 70" fill="none" stroke="#4a4038" stroke-width="2"/>
+ <ellipse cx="210" cy="78" rx="14" ry="11" fill="#14100e"/>
+ <path d="M93 126 Q94 194 151 200 Q208 194 209 126 Q202 158 186 162 Q151 150 116 162 Q100 158 93 126 Z" fill="#14100e"/>
+ <path d="M132 168 Q151 182 170 168 Q151 173 132 168Z" fill="#fff" stroke-width="2.5"/>
+ <circle cx="130" cy="124" r="4.5" fill="#2b2420" stroke="none"/><circle cx="172" cy="124" r="4.5" fill="#2b2420" stroke="none"/>
+ <path d="M120 110 q10 -6 20 -2 M162 108 q10 -4 20 2" fill="none" stroke-width="4"/>
+</g><g transform="translate(30,22)"><path d="M0 10 q0 -10 10 -10 h150 q10 0 10 10 v46 q0 10 -10 10 h-90 l-6 16 l-14 -16 h-40 q-10 0 -10 -10z" fill="#fffdf6" stroke="#2b2420" stroke-width="2"/><text x="12" y="30" class="h" font-size="20">Indian roller!</text><text x="12" y="52" class="h" font-size="20">(it was European)</text></g></svg>
+   <div class="meta">
+    <h3>Vibish</h3>
+    <p class="role">The Quiet Sharp-Eye · <i>Oculus acutissimus</i></p>
+    <p class="lines">Spotted the most species after Surya. Ate four eggs at breakfast, then wrote the trip’s best story.</p>
+    <p class="ask"><b>Ask me about</b> raptors, grasslands, stories in Tamil</p>
+   </div>
+   <button class="turn" type="button" id="turn-vibish" aria-controls="flip-vibish">Field notes →</button>
+  </div>
+  <div class="face back">
+   <span class="hole" aria-hidden="true"></span>
+   <p class="backname">Vibish</p>
+   <dl><dt>Their work</dt><dd class="works"><button class="work" type="button" data-piece="vibish">Field dispatch</button><a class="work" href="https://www.instagram.com/vibi_world/" target="_blank" rel="noopener">@vibi_world ↗</a></dd><dt>Field note</dt><dd>A hoverfly sat on his hand, his first ever. By noon he was counting kestrels.</dd><dt>Now</dt><dd>Posts his wildlife finds on Instagram.</dd></dl>
+   <button class="turn" type="button" id="turnback-vibish" aria-controls="flip-vibish">← Turn back</button>
+  </div>
+ </div>
+</article>
+<article class="tag" data-grp="batch">
+ <div class="flip" id="flip-vinitha">
+  <div class="face front">
+   <span class="hole" aria-hidden="true"></span>
+   <svg viewBox="0 0 330 440" role="img" aria-label="Doodle of Vinitha"><g filter="url(#wob)" stroke="#2b2420" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(15,10)">
+ <path d="M114 300 L192 300 L194 398 L160 398 L154 334 L148 398 L110 398 Z" fill="#262626"/><path d="M102 398 h44 q4 14 -6 16 h-36 q-8 -6 -2 -16z" fill="#3a3330"/><path d="M158 398 h42 q8 8 2 16 h-38 q-10 -2 -6 -16z" fill="#3a3330"/>
+ <path d="M96 206 Q151 192 206 206 L210 304 L92 304 Z" fill="#1d1d1d"/>
+ <g transform="translate(150,246)" stroke="#c0392b" stroke-width="2.5" fill="#c0392b">
+  <ellipse rx="6" ry="9"/><path d="M0 9 q2 10 -4 14 q-6 2 -4 -4" fill="none"/>
+  <path d="M-5 -4 l-9 -6 M-5 2 l-10 0 M5 -4 l9 -6 M5 2 l10 0 M-3 -9 l-6 -8 M3 -9 l6 -8" fill="none"/>
+ </g>
+ <path d="M96 110 Q82 190 98 250 L120 214 M206 110 Q220 190 204 250 L182 214" fill="#181412"/>
+ <path d="M100 212 Q80 252 108 270" fill="none" stroke-width="16"/><path d="M100 212 Q80 252 108 270" fill="none" stroke-width="10" stroke="#1d1d1d"/>
+ <circle cx="112" cy="272" r="9" fill="#8a5b3c"/>
+ <path d="M202 212 Q230 200 238 168" fill="none" stroke-width="16"/><path d="M202 212 Q230 200 238 168" fill="none" stroke-width="10" stroke="#1d1d1d"/>
+ <g transform="rotate(8 250 150)">
+  <rect x="214" y="96" width="78" height="96" rx="3" fill="#fffdf6" stroke-width="2.5"/>
+  <path d="M218 104 v80" stroke-dasharray="2 5" stroke-width="2"/>
+  <path d="M254 176 C252 150 258 136 254 120" fill="none" stroke="#3f6b22" stroke-width="2"/>
+  <path d="M254 122 q-10 -8 -2 -18 q10 -2 10 10 q0 6 -8 8z" fill="#cfe3a6" stroke-width="2"/>
+  <path d="M250 110 q4 -10 10 -6" fill="none" stroke="#7a3a6a" stroke-width="2"/>
+  <path d="M240 160 q-10 -4 -14 6 M262 150 q10 -6 16 2" fill="none" stroke="#3f6b22" stroke-width="2"/>
+ </g>
+ <circle cx="238" cy="166" r="9" fill="#8a5b3c"/>
+ <rect x="137" y="176" width="28" height="26" fill="#8a5b3c"/><ellipse cx="94" cy="130" rx="9" ry="14" fill="#8a5b3c"/><ellipse cx="208" cy="130" rx="9" ry="14" fill="#8a5b3c"/><ellipse cx="151" cy="126" rx="58" ry="64" fill="#8a5b3c"/>
+ <path d="M96 128 Q90 62 151 58 Q212 62 206 128 Q200 94 170 84 Q151 92 132 84 Q102 94 96 128 Z" fill="#181412"/>
+ <path d="M151 60 L151 86" stroke="#4a4038" stroke-width="2"/>
+ <path d="M124 118 q10 -10 20 0 M158 118 q10 -10 20 0" fill="none" stroke-width="3.5"/>
+ <path d="M124 150 Q151 182 178 150 Z" fill="#fff" stroke-width="3"/>
+ <ellipse cx="114" cy="142" rx="8" ry="4" fill="#c27a5a" stroke="none" opacity=".6"/><ellipse cx="188" cy="142" rx="8" ry="4" fill="#c27a5a" stroke="none" opacity=".6"/>
+</g><g transform="translate(26,22)"><path d="M0 10 q0 -10 10 -10 h166 q10 0 10 10 v24 q0 10 -10 10 h-106 l-6 16 l-14 -16 h-40 q-10 0 -10 -10z" fill="#fffdf6" stroke="#2b2420" stroke-width="2"/><text x="12" y="30" class="h" font-size="20">that's a pellet, guys.</text></g></svg>
+   <div class="meta">
+    <h3>Vinitha</h3>
+    <p class="role">The Floral Linguist · <i>Botanica bambusicola</i></p>
+    <p class="lines">Talks plants with Natasha in a language the rest of us lack. Knew the pellets were poop.</p>
+    <p class="ask"><b>Ask me about</b> native plants, nature journals, camera traps</p>
+   </div>
+   <button class="turn" type="button" id="turn-vinitha" aria-controls="flip-vinitha">Field notes →</button>
+  </div>
+  <div class="face back">
+   <span class="hole" aria-hidden="true"></span>
+   <p class="backname">Vinitha</p>
+   <dl><dt>Their work</dt><dd class="works"><button class="work" type="button" data-piece="vinitha">Illustration: Ceropegia</button><a class="work" href="https://www.instagram.com/runamufarm/" target="_blank" rel="noopener">Runamu Farm ↗</a></dd><dt>Field note</dt><dd>Spent the trip learning the flora and collecting seeds for her own patch of forest back home.</dd><dt>Now</dt><dd>Runs Runamu Farm: organic, regenerative farming and a growing food forest.</dd><dt>Open door</dt><dd>Her house in the bamboo. Great coffee, says Joel.</dd></dl>
+   <button class="turn" type="button" id="turnback-vinitha" aria-controls="flip-vinitha">← Turn back</button>
+  </div>
+ </div>
+</article>
+<article class="tag" data-grp="batch">
+ <div class="flip" id="flip-arul">
+  <div class="face front">
+   <span class="hole" aria-hidden="true"></span>
+   <svg viewBox="0 0 330 440" role="img" aria-label="Doodle of Arul"><g filter="url(#wob)" stroke="#2b2420" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(15,10)">
+ <path d="M114 300 L192 300 L194 398 L160 398 L154 334 L148 398 L110 398 Z" fill="#6a6e72"/><path d="M102 398 h44 q4 14 -6 16 h-36 q-8 -6 -2 -16z" fill="#5f6b4f"/><path d="M158 398 h42 q8 8 2 16 h-38 q-10 -2 -6 -16z" fill="#5f6b4f"/>
+ <circle cx="118" cy="404" r="2" fill="#2b2420" stroke="none"/><circle cx="128" cy="404" r="2" fill="#2b2420" stroke="none"/><circle cx="176" cy="404" r="2" fill="#2b2420" stroke="none"/><circle cx="186" cy="404" r="2" fill="#2b2420" stroke="none"/>
+ <path d="M94 206 Q151 190 208 206 L214 306 L88 306 Z" fill="#b5523e"/>
+ <path d="M168 232 q8 -10 16 0 q-8 6 -16 0z" fill="#e8b23a" stroke-width="2"/>
+ <path d="M96 210 Q74 250 86 296" fill="none" stroke-width="16"/><path d="M96 210 Q74 250 86 296" fill="none" stroke-width="10" stroke="#b5523e"/>
+ <circle cx="88" cy="300" r="9" fill="#7a4f36"/>
+ <path d="M206 210 Q236 230 244 196" fill="none" stroke-width="16"/><path d="M206 210 Q236 230 244 196" fill="none" stroke-width="10" stroke="#b5523e"/>
+ <path d="M226 186 Q248 160 276 172 Q284 192 258 200 Q236 204 226 186Z" fill="#9a8f80"/>
+ <path d="M240 186 q10 -6 20 0" fill="none" stroke-width="2"/>
+ <circle cx="244" cy="194" r="9" fill="#7a4f36"/>
+ <g transform="translate(262,236)" stroke-width="2">
+  <ellipse rx="10" ry="6" fill="#3a2a1e"/>
+  <path d="M10 0 q14 -4 10 -16 q-2 -6 -8 -2" fill="none" stroke-width="3"/>
+  <path d="M-10 -2 l-10 -6 l-4 4 M-10 2 l-10 6 l-4 -4" fill="none"/>
+  <path d="M-4 6 l-4 8 M2 6 l0 9 M6 5 l4 8 M-4 -6 l-4 -8 M2 -6 l0 -9 M6 -5 l4 -8" fill="none"/>
+ </g>
+ <path d="M126 204 L140 252 L162 252 L176 204" fill="none" stroke-width="2"/>
+ <rect x="132" y="246" width="18" height="24" rx="5" fill="#3b4a3b"/><rect x="152" y="246" width="18" height="24" rx="5" fill="#3b4a3b"/>
+ <rect x="137" y="176" width="28" height="26" fill="#7a4f36"/><ellipse cx="94" cy="130" rx="9" ry="14" fill="#7a4f36"/><ellipse cx="208" cy="130" rx="9" ry="14" fill="#7a4f36"/><ellipse cx="151" cy="126" rx="58" ry="64" fill="#7a4f36"/>
+ <path d="M94 116 Q96 62 151 58 Q206 62 208 116 Q198 86 151 82 Q104 86 94 116 Z" fill="#14100e"/>
+ <rect x="112" y="112" width="34" height="24" rx="5" fill="#fff" fill-opacity=".25"/><rect x="156" y="112" width="34" height="24" rx="5" fill="#fff" fill-opacity=".25"/>
+ <path d="M146 122 h10 M112 120 l-16 -4 M190 120 l16 -4" fill="none" stroke-width="3"/>
+ <circle cx="130" cy="125" r="4" fill="#2b2420" stroke="none"/><circle cx="172" cy="125" r="4" fill="#2b2420" stroke="none"/>
+ <path d="M94 132 Q95 194 151 200 Q207 194 208 132 Q200 160 186 164 Q151 152 116 164 Q102 160 94 132 Z" fill="#14100e"/>
+ <path d="M132 170 Q151 184 170 170 Q151 175 132 170Z" fill="#fff" stroke-width="2.5"/>
+</g><g transform="translate(24,22)"><path d="M0 10 q0 -10 10 -10 h166 q10 0 10 10 v24 q0 10 -10 10 h-106 l-6 16 l-14 -16 h-40 q-10 0 -10 -10z" fill="#fffdf6" stroke="#2b2420" stroke-width="2"/><text x="12" y="30" class="h" font-size="20">cab at 5 am, anyone?</text></g></svg>
+   <div class="meta">
+    <h3>Arul</h3>
+    <p class="role">The Early Riser · <i>Matutinus krishnagiriensis</i></p>
+    <p class="lines">Reached Krishnagiri at 5 am. Lent his binoculars and named one of us “the explorer”.</p>
+    <p class="ask"><b>Ask me about</b> snakes, dragonflies, all things herp</p>
+   </div>
+   <button class="turn" type="button" id="turn-arul" aria-controls="flip-arul">Field notes →</button>
+  </div>
+  <div class="face back">
+   <span class="hole" aria-hidden="true"></span>
+   <p class="backname">Arul</p>
+   <dl><dt>Their work</dt><dd class="works"><a class="work" href="https://www.instagram.com/natureed_emden/" target="_blank" rel="noopener">Snake walk, 14 Nov ↗</a><a class="work" href="https://www.instagram.com/natureed_emden/" target="_blank" rel="noopener">Gulf of Mannar, 11–13 Dec ↗</a></dd><dt>Field note</dt><dd>In the grassland with Shiva, Vishwa and Abhi, flipping stones for whatever lived under them.</dd><dt>Now</dt><dd>A naturalist with stints at a zoo and at Agumbe’s rainforest, now running his own venture, NatureED. Next: a snake walk with the Irulas and a Gulf of Mannar sea camp. Reporting time, probably 5 am.</dd></dl>
+   <button class="turn" type="button" id="turnback-arul" aria-controls="flip-arul">← Turn back</button>
+  </div>
+ </div>
+</article>
+<article class="tag" data-grp="batch">
+ <div class="flip" id="flip-irene">
+  <div class="face front">
+   <span class="hole" aria-hidden="true"></span>
+   <svg viewBox="0 0 330 440" role="img" aria-label="Doodle of Irene"><g filter="url(#wob)" stroke="#2b2420" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(15,10)">
+ <path d="M114 300 L192 300 L194 398 L160 398 L154 334 L148 398 L110 398 Z" fill="#2a2a2a"/><path d="M102 398 h44 q4 14 -6 16 h-36 q-8 -6 -2 -16z" fill="#3a3330"/><path d="M158 398 h42 q8 8 2 16 h-38 q-10 -2 -6 -16z" fill="#3a3330"/>
+ <path d="M96 206 Q151 192 206 206 L210 304 L92 304 Z" fill="#1d1d1d"/>
+ <g fill="#e8e2d6" stroke="none"><circle cx="116" cy="230" r="2"/><circle cx="140" cy="250" r="2"/><circle cx="170" cy="226" r="2"/><circle cx="188" cy="262" r="2"/><circle cx="126" cy="284" r="2"/><circle cx="160" cy="276" r="2"/><circle cx="196" cy="236" r="2"/><circle cx="108" cy="262" r="2"/></g>
+ <path d="M100 212 Q74 240 70 200" fill="none" stroke-width="16"/><path d="M100 212 Q74 240 70 200" fill="none" stroke-width="10" stroke="#1d1d1d"/>
+ <g transform="rotate(-10 60 170)">
+  <rect x="38" y="128" width="58" height="72" rx="3" fill="#fffdf6" stroke-width="2.5"/>
+  <circle cx="66" cy="156" r="14" fill="none" stroke-width="2"/>
+  <path d="M60 154 h2 M70 154 h2 M60 162 q6 5 12 0 M56 144 q10 -10 22 0" fill="none" stroke-width="2"/>
+  <path d="M50 186 h30" stroke-width="2"/>
+ </g>
+ <circle cx="70" cy="198" r="9" fill="#8f6244"/>
+ <path d="M202 212 Q232 236 236 206" fill="none" stroke-width="16"/><path d="M202 212 Q232 236 236 206" fill="none" stroke-width="10" stroke="#1d1d1d"/>
+ <rect x="222" y="150" width="34" height="58" rx="6" fill="#2b2b2b"/>
+ <rect x="226" y="156" width="26" height="44" rx="2" fill="#bfe0ef"/>
+ <rect x="229" y="162" width="20" height="6" rx="3" fill="#fff" stroke-width="1.5"/>
+ <path d="M230 176 h16 M230 182 h12 M230 188 h16" stroke-width="1.5"/>
+ <circle cx="236" cy="208" r="9" fill="#8f6244"/>
+ <rect x="137" y="176" width="28" height="26" fill="#8f6244"/><ellipse cx="94" cy="130" rx="9" ry="14" fill="#8f6244"/><ellipse cx="208" cy="130" rx="9" ry="14" fill="#8f6244"/><ellipse cx="151" cy="126" rx="58" ry="64" fill="#8f6244"/>
+ <path d="M94 120 Q94 60 151 56 Q208 60 208 120 Q198 84 151 80 Q104 84 94 120 Z" fill="#181412"/>
+ <path d="M120 66 Q151 58 182 66 M112 82 Q151 70 190 82" fill="none" stroke="#4a4038" stroke-width="2"/>
+ <ellipse cx="210" cy="96" rx="10" ry="18" fill="#181412"/>
+ <circle cx="130" cy="126" r="5" fill="#2b2420" stroke="none"/><circle cx="172" cy="126" r="5" fill="#2b2420" stroke="none"/>
+ <circle cx="132" cy="124" r="1.6" fill="#fff" stroke="none"/><circle cx="174" cy="124" r="1.6" fill="#fff" stroke="none"/>
+ <path d="M120 108 q10 -8 20 -4 M162 104 q10 -4 20 4" fill="none" stroke-width="3.5"/>
+ <ellipse cx="151" cy="160" rx="10" ry="8" fill="#5a2a1e"/>
+ <ellipse cx="114" cy="146" rx="8" ry="4" fill="#c27a5a" stroke="none" opacity=".6"/><ellipse cx="188" cy="146" rx="8" ry="4" fill="#c27a5a" stroke="none" opacity=".6"/>
+</g><g transform="translate(120,18)"><path d="M0 10 q0 -10 10 -10 h156 q10 0 10 10 v24 q0 10 -10 10 h-76 l-6 16 l-14 -16 h-60 q-10 0 -10 -10z" fill="#fffdf6" stroke="#2b2420" stroke-width="2"/><text x="12" y="30" class="h" font-size="20">wait... spell that?</text></g></svg>
+   <div class="meta">
+    <h3>Irene</h3>
+    <p class="role">The Documentarian · <i>Scriba googlensis</i></p>
+    <p class="lines">First wildlife trip. Waited for Surya to say the name, then googled it. Drew everyone.</p>
+    <p class="ask"><b>Ask me about</b> caricatures, Cubbon spiders</p>
+   </div>
+   <button class="turn" type="button" id="turn-irene" aria-controls="flip-irene">Field notes →</button>
+  </div>
+  <div class="face back">
+   <span class="hole" aria-hidden="true"></span>
+   <p class="backname">Irene</p>
+   <dl><dt>Their work</dt><dd class="works"><button class="work" type="button" data-piece="irene">Sketchnote diary</button></dd><dt>Field note</dt><dd>Recorded nearly every moment of the trip, then sent it all to the group in one evening.</dd><dt>Now</dt><dd>Spider-spotting in Cubbon Park. Found a blue tiger moth in Thrissur.</dd></dl>
+   <button class="turn" type="button" id="turnback-irene" aria-controls="flip-irene">← Turn back</button>
+  </div>
+ </div>
+</article>
+<article class="tag" data-grp="batch">
+ <div class="flip" id="flip-sargam">
+  <div class="face front">
+   <span class="hole" aria-hidden="true"></span>
+   <svg viewBox="0 0 330 440" role="img" aria-label="Doodle of Sargam">
+ <g filter="url(#wob)" stroke="#2b2420" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" transform="translate(15,10)">
+  <!-- distant hills -->
+  <path d="M-4 330 Q30 300 60 318 Q80 296 104 320" fill="none" stroke="#7a9a6a" stroke-width="2.5"/>
+  <!-- flowy white pants -->
+  <path d="M114 296 L190 296 L206 398 L158 398 L152 336 L146 398 L98 398 Z" fill="#fbfaf4"/>
+  <path d="M120 320 L112 392 M184 320 L194 392" fill="none" stroke="#bdb6a6" stroke-width="2"/>
+  <!-- mint sneakers -->
+  <path d="M100 398 h44 q6 14 -4 18 h-42 q-8 -8 2 -18z" fill="#8fd8c6"/><path d="M160 398 h44 q10 10 0 18 h-42 q-10 -4 -2 -18z" fill="#8fd8c6"/>
+  <path d="M100 412 h44 M160 412 h44" stroke-width="2"/>
+  <!-- black tank -->
+  <path d="M122 200 Q151 214 180 200 L192 300 L112 300 Z" fill="#1d1d1d"/>
+  <path d="M122 200 L126 186 M180 200 L176 186" stroke-width="5"/>
+  <!-- long wavy hair behind -->
+  <path d="M96 110 Q84 180 100 230 Q92 250 110 262 L120 200 M206 110 Q218 180 202 230 Q210 250 192 262 L182 200" fill="#181412"/>
+  <!-- arms holding binoculars to eyes -->
+  <path d="M114 206 Q92 190 116 136" fill="none" stroke-width="16"/><path d="M114 206 Q92 190 116 136" fill="none" stroke-width="10" stroke="#b9855f"/>
+  <path d="M188 206 Q210 190 186 136" fill="none" stroke-width="16"/><path d="M188 206 Q210 190 186 136" fill="none" stroke-width="10" stroke="#b9855f"/>
+  <path d="M106 210 q6 4 12 0" fill="none" stroke="#c9a24a" stroke-width="3"/>
+  <!-- head -->
+  <rect x="139" y="170" width="24" height="24" fill="#b9855f"/>
+  <ellipse cx="151" cy="124" rx="52" ry="60" fill="#b9855f"/>
+  <path d="M98 128 Q92 66 151 62 Q210 66 204 128 Q198 92 176 86 Q151 80 128 88 Q104 96 98 128 Z" fill="#181412"/>
+  <path d="M98 128 Q90 150 96 170 M204 128 Q212 150 206 170" fill="none" stroke="#181412" stroke-width="10"/>
+  <!-- binoculars -->
+  <rect x="106" y="100" width="42" height="48" rx="10" fill="#3b4a3b"/><rect x="154" y="100" width="42" height="48" rx="10" fill="#3b4a3b"/><rect x="144" y="114" width="14" height="18" fill="#2b2b2b"/><circle cx="127" cy="124" r="15" fill="#1f2420"/><circle cx="175" cy="124" r="15" fill="#1f2420"/><circle cx="127" cy="124" r="9" fill="#4b6a7a" stroke-width="2"/><circle cx="175" cy="124" r="9" fill="#4b6a7a" stroke-width="2"/><circle cx="123" cy="120" r="2.5" fill="#fff" stroke="none"/><circle cx="171" cy="120" r="2.5" fill="#fff" stroke="none"/><ellipse cx="104" cy="134" rx="9" ry="12" fill="#b9855f"/><ellipse cx="198" cy="134" rx="9" ry="12" fill="#b9855f"/>
+  <path d="M130 162 Q151 176 172 162" fill="none" stroke-width="3.5"/>
+  <!-- the bird on her head -->
+  <g transform="translate(150,40)">
+   <ellipse cx="0" cy="0" rx="20" ry="14" fill="#c86a3a"/>
+   <circle cx="16" cy="-12" r="10" fill="#c86a3a"/>
+   <path d="M25 -12 l10 3 l-10 3" fill="#e8b23a" stroke-width="2"/>
+   <circle cx="19" cy="-14" r="2" fill="#2b2420" stroke="none"/>
+   <path d="M-18 -2 l-16 -8 l4 12z" fill="#8a4a2a" stroke-width="2"/>
+   <path d="M-4 12 l0 8 M6 12 l0 8" stroke-width="2"/>
+  </g>
+ </g>
+ <g transform="translate(200,10)">
+  <path d="M0 10 q0 -10 10 -10 h92 q10 0 10 10 v30 q0 10 -10 10 h-50 l-24 18 l6 -18 h-24 q-10 0 -10 -10z" fill="#fffdf6" stroke="#2b2420" stroke-width="2"/>
+  <text x="12" y="32" class="h" font-size="20">any birds?</text>
+ </g></svg>
+   <div class="meta">
+    <h3>Sargam</h3>
+    <p class="role">The Explorer · <i>Exploratrix binocularis</i></p>
+    <p class="lines">Borrowed binoculars to find a bird. Found the whole landscape. Asked everyone short questions.</p>
+    <p class="ask"><b>Ask me about</b> the story behind it</p>
+   </div>
+   <button class="turn" type="button" id="turn-sargam" aria-controls="flip-sargam">Field notes →</button>
+  </div>
+  <div class="face back">
+   <span class="hole" aria-hidden="true"></span>
+   <p class="backname">Sargam</p>
+   <dl><dt>Their work</dt><dd class="works"><button class="work" type="button" data-piece="poem">Poem: The Acrobats of Eastern Ghats</button></dd><dt>Field note</dt><dd>Played the pellet game. Found out what the pellets were afterwards.</dd><dt>Now</dt><dd>Putting this field guide together.</dd></dl>
+   <button class="turn" type="button" id="turnback-sargam" aria-controls="flip-sargam">← Turn back</button>
+  </div>
+ </div>
+</article></div>
+  <div class="crewrow"><figure class="crew"><svg viewBox="0 0 200 190" role="img" aria-label="Doodle of Christina"><g filter="url(#wob)" stroke="#2b2420" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+ 
+ <path d="M40 190 Q44 150 100 146 Q156 150 160 190 Z" fill="#a8263a"/>
+ <rect x="90" y="130" width="20" height="22" fill="#a8744f"/>
+ <ellipse cx="100" cy="96" rx="40" ry="44" fill="#a8744f"/>
+ <path d="M60 96 Q58 50 100 48 Q142 50 140 96 Q132 70 100 68 Q68 70 60 96Z" fill="#181412"/><path d="M140 80 Q156 110 146 150" fill="none" stroke="#181412" stroke-width="12"/>
+ <circle cx="86" cy="98" r="3.5" fill="#2b2420" stroke="none"/><circle cx="114" cy="98" r="3.5" fill="#2b2420" stroke="none"/>
+ <path d="M86 128 Q100 138 114 128" fill="none" stroke-width="3"/>
+ <path d="M66 150 L132 190" stroke="#e8a0b0" stroke-width="5"/>
+</g></svg>
+<figcaption><b>Christina</b> <span>Camp manager</span><em>Has the auto driver’s number.</em></figcaption></figure><figure class="crew"><svg viewBox="0 0 200 190" role="img" aria-label="Doodle of Shiva"><g filter="url(#wob)" stroke="#2b2420" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+ 
+ <path d="M40 190 Q44 150 100 146 Q156 150 160 190 Z" fill="#222"/>
+ <rect x="90" y="130" width="20" height="22" fill="#6e4630"/>
+ <ellipse cx="100" cy="96" rx="40" ry="44" fill="#6e4630"/>
+ <path d="M60 90 Q62 48 100 46 Q138 48 140 90 Q130 66 100 64 Q70 66 60 90Z" fill="#14100e"/><path d="M62 104 Q64 140 100 142 Q136 140 138 104 Q130 124 100 120 Q70 124 62 104Z" fill="#14100e" opacity=".85"/>
+ <circle cx="86" cy="98" r="3.5" fill="#2b2420" stroke="none"/><circle cx="114" cy="98" r="3.5" fill="#2b2420" stroke="none"/>
+ <path d="M88 128 h24" stroke-width="3"/>
+ <circle cx="100" cy="170" r="7" fill="#c0392b" stroke-width="2"/><g transform="translate(160,140)"><rect x="-16" y="-20" width="32" height="40" rx="6" fill="#dfeef5" fill-opacity=".6"/><rect x="-18" y="-26" width="36" height="8" rx="2" fill="#8a6a42"/><ellipse cy="4" rx="4" ry="5" fill="#2b2420"/><path d="M-4 0 l-8 -4 M-4 6 l-8 4 M4 0 l8 -4 M4 6 l8 4" stroke-width="1.5"/></g>
+</g></svg>
+<figcaption><b>Shiva</b> <span>Camp crew</span><em>Pellet-game champion. Kidnaps spiders for Joel to identify.</em></figcaption></figure><figure class="crew"><svg viewBox="0 0 200 190" role="img" aria-label="Doodle of Abhi"><g filter="url(#wob)" stroke="#2b2420" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+ 
+ <path d="M40 190 Q44 150 100 146 Q156 150 160 190 Z" fill="#a9adb0"/>
+ <rect x="90" y="130" width="20" height="22" fill="#a6774f"/>
+ <ellipse cx="100" cy="96" rx="40" ry="44" fill="#a6774f"/>
+ <g fill="#14100e"><circle cx="70" cy="70" r="16"/><circle cx="90" cy="56" r="17"/><circle cx="112" cy="56" r="17"/><circle cx="132" cy="70" r="16"/><circle cx="100" cy="68" r="18"/><circle cx="62" cy="90" r="10"/><circle cx="138" cy="90" r="10"/></g>
+ <circle cx="86" cy="98" r="3.5" fill="#2b2420" stroke="none"/><circle cx="114" cy="98" r="3.5" fill="#2b2420" stroke="none"/>
+ <path d="M86 128 Q100 138 114 128" fill="none" stroke-width="3"/>
+ <g transform="translate(46,150) rotate(-20)"><path d="M-18 0 q18 -10 36 0 q-18 8 -36 0z" fill="#8a6a3a" stroke-width="2"/><path d="M18 0 q14 2 22 -4" fill="none" stroke-width="2"/><path d="M-6 -4 l-4 -6 M6 -4 l4 -6 M-6 4 l-4 6 M6 4 l4 6" stroke-width="1.5"/><path d="M-12 0 h24" stroke="#d9c38a" stroke-width="1.5"/></g>
+</g></svg>
+<figcaption><b>Abhi</b> <span>Intern</span><em>+500 aura for a Beddome’s skink. −1000 for losing the snake.</em></figcaption></figure></div>
+ </section>
+
+ <section id="species" aria-labelledby="sp">
+  <h2 id="sp">What we saw <small>tap a group · add what we missed</small></h2>
+  <ul class="cats"><li><button class="cat" type="button" id="cat-birds" data-g="birds" aria-expanded="false" aria-controls="catpanel"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 30c8 0 12-4 16-10l6-8c2-3 6-4 9-2l3 2-4 2c2 4 1 9-3 13-5 5-13 7-21 6z"/><path d="M22 20c-4-6-10-9-16-9 2 6 6 10 12 12"/><path d="M27 33l-2 7M31 31l1 8"/><circle cx="33" cy="13" r=".8" fill="currentColor"/></svg><b>Birds</b><span class="cnt" data-g="birds">19</span></button></li><li><button class="cat" type="button" id="cat-odonates" data-g="odonates" aria-expanded="false" aria-controls="catpanel"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 8v34"/><circle cx="24" cy="9" r="3"/><path d="M24 15c-6-6-16-6-19-2 3 4 13 4 19 2zM24 15c6-6 16-6 19-2-3 4-13 4-19 2zM24 21c-5-3-14-2-17 1 3 3 12 3 17-1zM24 21c5-3 14-2 17 1-3 3-12 3-17-1z"/></svg><b>Dragonflies &amp; damselflies</b><span class="cnt" data-g="odonates">7</span></button></li><li><button class="cat" type="button" id="cat-inverts" data-g="inverts" aria-expanded="false" aria-controls="catpanel"><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="28" rx="7" ry="10"/><circle cx="24" cy="14" r="4"/><path d="M17 22l-9-5M17 28H6M17 34l-9 5M31 22l9-5M31 28h11M31 34l9 5M22 11l-3-5M26 11l3-5"/></svg><b>Bugs &amp; spiders</b><span class="cnt" data-g="inverts">7</span></button></li><li><button class="cat" type="button" id="cat-reptiles" data-g="reptiles" aria-expanded="false" aria-controls="catpanel"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M4 26c6 0 8-6 14-6s10 4 16 4 8-3 10-6c-1 6-5 10-11 10-6 0-9-3-15-2s-8 4-14 0z"/><path d="M14 22l-3-6M14 28l-4 5M30 24l2-6M30 30l3 5"/><circle cx="41" cy="20" r=".8" fill="currentColor"/></svg><b>Reptiles</b><span class="cnt" data-g="reptiles">6</span></button></li><li><button class="cat" type="button" id="cat-amphibians" data-g="amphibians" aria-expanded="false" aria-controls="catpanel"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 32c0-8 6-14 14-14s14 6 14 14c0 4-4 6-14 6s-14-2-14-6z"/><circle cx="17" cy="17" r="4"/><circle cx="31" cy="17" r="4"/><path d="M10 34l-5 4M38 34l5 4M18 30c3 2 9 2 12 0"/></svg><b>Amphibians</b><span class="cnt" data-g="amphibians">1</span></button></li><li><button class="cat" type="button" id="cat-mammals" data-g="mammals" aria-expanded="false" aria-controls="catpanel"><svg viewBox="0 0 48 48" aria-hidden="true"><ellipse cx="24" cy="31" rx="8" ry="7"/><ellipse cx="12" cy="20" rx="3.5" ry="4.5"/><ellipse cx="20" cy="13" rx="3.5" ry="4.5"/><ellipse cx="29" cy="13" rx="3.5" ry="4.5"/><ellipse cx="37" cy="20" rx="3.5" ry="4.5"/></svg><b>Mammal signs</b><span class="cnt" data-g="mammals">2</span></button></li><li><button class="cat" type="button" id="cat-plants" data-g="plants" aria-expanded="false" aria-controls="catpanel"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 42V20"/><path d="M24 26c-10 0-15-7-15-16 9 0 15 6 15 16z"/><path d="M24 22c8 0 13-5 13-13-8 0-13 5-13 13z"/></svg><b>Plants</b><span class="cnt" data-g="plants">7</span></button></li></ul>
+  <div class="catpanel" id="catpanel" hidden>
+   <ul class="names" id="names" aria-label="Species in this group"></ul>
+   <div class="spdetail" id="spdetail"></div>
+   <div class="spadd" id="spadd"></div>
+  </div>
+  <p class="bstatus" id="spstatus" role="status"></p>
+ </section>
+
+ <section id="board" aria-labelledby="bh">
+  <h2 id="bh">Rabbit holes <small>open to the whole tribe · tap a note to read it</small></h2>
+  <div class="legend" id="legend"></div>
+  <div class="cols" id="cols"></div>
+  <p class="bstatus" id="bstatus" role="status"></p>
+ </section>
+
+ <section id="shelf" aria-labelledby="sh">
+  <h2 id="sh">The shelf</h2>
+  <ul class="shelfrow" aria-label="Books"><li><button class="spine" type="button" id="bk-0" style="--c:#3f5f8a;--h:150px" data-t="Cathedral of the Wild" data-a="Boyd Varty" aria-expanded="false"><span>Cathedral of the Wild</span></button></li><li><button class="spine" type="button" id="bk-1" style="--c:#b5523e;--h:187px" data-t="The Man Who Lives With Wolves" data-a="Shaun Ellis" aria-expanded="false"><span>The Man Who Lives With Wolves</span></button></li><li><button class="spine" type="button" id="bk-2" style="--c:#5f7a4a;--h:174px" data-t="The Elephant Whisperer" data-a="Lawrence Anthony" aria-expanded="false"><span>The Elephant Whisperer</span></button></li><li><button class="spine" type="button" id="bk-3" style="--c:#c9860f;--h:161px" data-t="Cry of the Kalahari" data-a="Mark and Delia Owens" aria-expanded="false"><span>Cry of the Kalahari</span></button></li><li><button class="spine" type="button" id="bk-4" style="--c:#6b4a6e;--h:198px" data-t="The Snow Leopard" data-a="Peter Matthiessen" aria-expanded="false"><span>The Snow Leopard</span></button></li><li><button class="spine" type="button" id="bk-5" style="--c:#2f3a46;--h:185px" data-t="Jungle Lore" data-a="Jim Corbett" aria-expanded="false"><span>Jungle Lore</span></button></li><li><button class="spine" type="button" id="bk-6" style="--c:#8a5a3c;--h:172px" data-t="The Wild Heart of India" data-a="T. R. Shankar Raman" aria-expanded="false"><span>The Wild Heart of India</span></button></li><li><button class="spine" type="button" id="bk-7" style="--c:#4d6b6b;--h:159px" data-t="Owls of the Eastern Ice" data-a="Jonathan C. Slaght" aria-expanded="false"><span>Owls of the Eastern Ice</span></button></li><li><button class="spine" type="button" id="bk-8" style="--c:#3f5f8a;--h:196px" data-t="African Silences" data-a="Peter Matthiessen" aria-expanded="false"><span>African Silences</span></button></li><li><button class="spine" type="button" id="bk-9" style="--c:#b5523e;--h:183px" data-t="Running Away from Elephants" data-a="Rauf Ali" aria-expanded="false"><span>Running Away from Elephants</span></button></li><li><button class="spine" type="button" id="bk-10" style="--c:#5f7a4a;--h:170px" data-t="Braiding Sweetgrass" data-a="Robin Wall Kimmerer" aria-expanded="false"><span>Braiding Sweetgrass</span></button></li><li><button class="spine" type="button" id="bk-11" style="--c:#c9860f;--h:157px" data-t="Intertidal" data-a="Yuvan Aves" aria-expanded="false"><span>Intertidal</span></button></li><li><button class="spine" type="button" id="bk-12" style="--c:#6b4a6e;--h:194px" data-t="Entangled Life" data-a="Merlin Sheldrake" aria-expanded="false"><span>Entangled Life</span></button></li><li><button class="spine" type="button" id="bk-13" style="--c:#2f3a46;--h:181px" data-t="The Spell of the Sensuous" data-a="David Abram" aria-expanded="false"><span>The Spell of the Sensuous</span></button></li><li><button class="spine" type="button" id="bk-14" style="--c:#8a5a3c;--h:168px" data-t="Bitch" data-a="Lucy Cooke" aria-expanded="false"><span>Bitch</span></button></li><li><button class="spine" type="button" id="bk-15" style="--c:#4d6b6b;--h:155px" data-t="An Immense World" data-a="Ed Yong" aria-expanded="false"><span>An Immense World</span></button></li><li><button class="spine" type="button" id="bk-16" style="--c:#3f5f8a;--h:192px" data-t="The Trees of My Country" data-a="T. R. Shankar Raman" aria-expanded="false"><span>The Trees of My Country</span></button></li><li><button class="spine" type="button" id="bk-17" style="--c:#b5523e;--h:179px" data-t="Essays" data-a="Wendell Berry" aria-expanded="false"><span>Essays</span></button></li></ul>
+  <p class="detail" id="bookdetail" aria-live="polite">Tap a spine.</p>
+  <ul class="lrow" aria-label="To follow and explore"><li><button class="lchip" type="button" id="lk-0" data-t="Let’s Botanize" data-d="Instagram reel from a plant page the group follows." data-u="https://www.instagram.com/reel/DeUUx-HCGAr/" aria-expanded="false">Let’s Botanize</button></li><li><button class="lchip" type="button" id="lk-1" data-t="Plant page + podcast" data-d="Instagram post. The podcast is good company on long rides." data-u="https://www.instagram.com/p/DeiLTnJOSHy/" aria-expanded="false">Plant page + podcast</button></li><li><button class="lchip" type="button" id="lk-2" data-t="A Century of Birds from the Himalaya" data-d="Google Arts &amp; Culture: John and Elizabeth Gould’s 1832 bird plates." data-u="https://artsandculture.google.com/story/sgXh3tFdXe1rtg" aria-expanded="false">A Century of Birds from the Himalaya</button></li></ul>
+  <p class="detail" id="linkdetail" aria-live="polite"></p>
+ </section>
+
+ <section id="soon" aria-labelledby="sn">
+  <h2 id="sn">Still to come</h2>
+  <ul class="soon">
+   <li class="dark"><b>Stories from the dark and unknown</b><span>Joel’s ghost stories, best heard by torchlight. Not responsible for lost sleep.</span></li>
+   <li><b>The snake that got away</b><span>Abhi’s side of the story. Aura recovery arc pending.</span></li>
+   <li><b>The Floriosa files</b><span>How long one flower lived under the wrong letter.</span></li>
+   <li><b>The hoverfly-on-hand club</b><span>Everyone’s firsts. Membership open.</span></li>
+  </ul>
+ </section>
+
+ <footer>Made by Sargam for the batch. Journal pages and drawings belong to the people who made them. The doodles are cartoons, not portraits.</footer>
+</div>
+
+<dialog id="piece" aria-labelledby="piece-title"><div class="dbar"><button type="button" id="piece-close">Close</button></div><div class="dbody" id="piece-body"></div></dialog>
+<template id="piece-poem"><p class="dwho">Sargam</p><h2>The Acrobats of Eastern Ghats</h2><div class="poem"><p>The amazing acrobats<br>In the grassland of Eastern Ghats<br>There are no ordinary stuntsmen here<br>Striding and gliding the Savanna without any fear<br>Starting with master hoverers who rule the sky<br>They stay absolute motionless while they fly<br>The grace in their glide &amp; the thrill of their dive<br>Would leave anyone with the happiest smile</p><p>Every wind hoverer here raises the bar<br>Esp by flying in from distances that are very far<br>My mind wandered with them down a memory lane<br>Where I was the one solo gliding on a different plane</p><p>For few moments, the fresh wind ran through me<br>I felt light, I felt free<br>Maybe that&#x27;s what freedom is<br>Not where you are, but how u fly</p><p>And maybe I understood<br>Why they never leave the sky</p><p>But the acrobats didn&#x27;t just own the sky<br>The ground had its own show too<br>These were small &amp; quiet<br>But their charm was something you cannot get thru</p><p>They had performed even when there was no one to cheer on<br>I silently thanked them and happily hopped on</p></div></template><template id="piece-irene"><p class="dwho">Irene</p><h2>Sketchnote diary</h2><img src="img/irene-caricatures.jpg" alt="Irene’s pen caricatures of the group and the animals from the trip"></template><template id="piece-natasha"><p class="dwho">Natasha</p><h2>Visual walk-through</h2><p class="desc">Natasha walked us through the trip on her tablet: the people, the flowers, and the small things we nearly missed.</p><div class="gallery"><img src="img/natasha-1.jpg" alt="Natasha presenting her visual walk-through, still 1"><img src="img/natasha-2.jpg" alt="Natasha presenting her visual walk-through, still 2"><img src="img/natasha-3.jpg" alt="Natasha presenting her visual walk-through, still 3"><img src="img/natasha-4.jpg" alt="Natasha presenting her visual walk-through, still 4"></div><p class="desc">Stills from the session video. Her slides can go here too.</p></template><template id="piece-vishwa"><p class="dwho">Vishwa</p><h2>Flame lily, Gloriosa superba</h2><img src="img/vishwa-gloriosa.jpg" alt="Vishwa’s pen drawing of a Gloriosa superba flower with notes"></template><template id="piece-vinitha"><p class="dwho">Vinitha</p><h2>Ceropegia candelabrum var. biflora</h2><img src="img/vinitha-ceropegia.jpg" alt="Vinitha’s coloured-pencil journal page of a Ceropegia vine with notes"></template><template id="piece-vibish"><p class="dwho">Vibish</p><h2>Hoverfly to Hovering Raptors</h2><div class="story"><p>Hoverfly to Hovering Raptors</p><p>A day when a hoverfly wants to sit on my hand. First time ever a hover fly sat on me!</p><p>After a morning walk with some highlights like Gunther’s toad eggs hatching, Cycas- edible fruits Natasha said:), Rusty spotted cat scat, star tortoise, white eyed buzzard, etc</p><p>We all headed to malappakonda in car and the gypsy(1 gypsy) after good and heavy breakfast (me who ate 4eggs that morning;) when we are close to Mallapakonda we saw our first raptor Black winged kite a hovering raptor then with house sparrows, mynas, and few weaver bird nest which was at 100 meter and Natasha guided me “its there” somehow I managed to see it by my own! Then we had an awesome migrant the European roller (confidently I said it’s an Indian roller 😶 with naked eyes!) and then surya stopped us there showed and explained some awesome things like red avadavat, plain prinia and himself gliding too, sadly I couldn’t able to see it 😕</p><p>Then we have to continue our drive all the way to grassland patch!! That day the Grassland felt like the Golden land to me. We have to ignore all the grassland things as we were focused on and welcomed by the other common hovering raptor of the place the Eurasian kestrel 🦅 all were excited to see its hunt and hover. The raptor checklist keeps increasing with 3 kestrels, a greater spotted eagle, bonelli’s eagle, laggar falcon? and other grassland birds. No targets no expectations but the sightings that we got that day at that time and things we looked for!! made that day… Arul and Shiva along with Vishwa and Abijeeth started fliping stones looking for geckos, scorpions, spider, skinks and snakes! Joel played with spiders, Natasha, Vinitha had their discussions on plants and looking for new plants in their plant language, Sargam was observing things and keep asking short questions not only to surya but everyone. Irene have to wait for surya to tell the name of a bird or a plant or a reptile so that she can google it. And I was like how can surya able to maintain a covo with everyone keeps sharing stories and info on different topics without a gaps !!! Then we all heard a loud durrrr durrr durrr sound and there comes Sachin with cooling glass and his bag pack in 3rd vehicle(his gypsy) not a heroic entry but fine..and joined us! Now it’s game time some of us played this earlier! and shiva scored the best on black-naped hare pellets shooting game where Sargam, and Irene realised later after the game that it’s a poop of a rodent, Vinitha was already aware. Sachin has to rinse his mouth after the game 😅 people found skink, spiders, geckos, even snake(may be a snake) 🐍 Abijeeth gained 500+ aura by catching a beddome’s skink and lost 1000 aura by loosing a snake without knowing which sps it could be :) shiva keeps kidnapping spiders to show it to Joel for id. Now it’s time for Natasha to tell people that why flora is fascinating as she had completed the morning walk with Cycas now she don’t have much time as we have to go back to camp for lunch… she showed jasminum, ground orchid(spotted by Joel first), caparis grandis, etc not everyone were interested :( except Vinitha who spoke floral language with Natasha from the beginning (now Vinitha has to be careful after the Cycas thing happened that morning) after a while Natasha asked me showing a flower of a climber on an Jasminum is that an aristolochia??????????? And grabbed peoples attention! Surya said doubtfully from distance could be Ceropegia everyone stopped! On closer inspection surya confirmed it’s a Ceropegia sps. Natasha is done with the day!!!! still Abijeeth was looking for the snake 🐍 everyone has to look at a the other Ceropegia which had a fly inside it also spotted by Natasha. It’s time for lunch now, we have to head back to the camp, noticed Irene keeps documenting everything and googling she didn’t even realised how lucky she is to see all these awesome rare things on her first Wildlife trip 😳  heading back to camp on the way saw joel parked his car and Abijeeth and Joel on the ground looking for something under the car. Is that a snake?? If yes why not everyone is out of the car?? And with 10 more questions I just ran near the car looking what could be that under the car? It’s a stick which got stuck… not even a stick insect :( and way back I was thinking the level of patience and focus that surya had to maintain these conversations with everyone. To click pictures at every moment he was the one waiting for everyone to take their pictures and he was the last one to capture it with some wide-angle shots were my legs could be captured in most of it 😩</p><p>Finally we all reached camp with awesome sightings. I got down from the gypsy saw a raptor soaring at a very distance.</p><p>That appeared like a black dot to me and black baza for Surya!!!</p><p>Realised a lot in that half day!!!!</p><p>From Hoverfly to a Hovering raptor.</p><p>That is from an insect to a raptor!</p></div></template>
+
+<script>
+// ---------- tags ----------
+document.querySelectorAll('.flip').forEach(function(f){
+  f.addEventListener('click',function(e){ if(e.target.closest('.work')) return; f.classList.toggle('on'); });
+});
+// ---------- pieces ----------
+var dlg=document.getElementById('piece'), dbody=document.getElementById('piece-body');
+document.querySelectorAll('button.work[data-piece]').forEach(function(b){
+  b.addEventListener('click',function(e){
+    e.stopPropagation();
+    var t=document.getElementById('piece-'+b.dataset.piece); if(!t) return;
+    dbody.replaceChildren(t.content.cloneNode(true));
+    var h=dbody.querySelector('h2'); if(h) h.id='piece-title';
+    if(dlg.showModal) dlg.showModal(); else dlg.setAttribute('open','');
+  });
+});
+document.getElementById('piece-close').addEventListener('click',function(){dlg.close?dlg.close():dlg.removeAttribute('open')});
+dlg.addEventListener('click',function(e){ if(e.target===dlg) dlg.close(); });
+// ---------- shelf ----------
+function picker(sel, out, fmt){
+  var bs=document.querySelectorAll(sel), o=document.getElementById(out);
+  bs.forEach(function(b){b.addEventListener('click',function(){
+    var on=b.getAttribute('aria-expanded')!=='true';
+    bs.forEach(function(x){x.setAttribute('aria-expanded','false')});
+    if(on){b.setAttribute('aria-expanded','true'); fmt(b,o);} else { o.textContent=''; }
+  })});
+}
+picker('.spine','bookdetail',function(b,o){ o.replaceChildren(); var t=document.createElement('b'); t.textContent=b.dataset.t; o.append(t,' by '+b.dataset.a); });
+picker('.lchip','linkdetail',function(b,o){ o.replaceChildren(); o.append(b.dataset.d+' '); var a=document.createElement('a'); a.href=b.dataset.u; a.target='_blank'; a.rel='noopener'; a.textContent='Open ↗'; o.append(a); });
+
+
+// ---------- live data from the Google Sheet ----------
+var API_URL = '{{API_URL}}';
+function el(t,c,txt){var e=document.createElement(t); if(c) e.className=c; if(txt!=null) e.textContent=txt; return e;}
+function safeUrl(u){ return /^https?:\/\//i.test(u||'') ? u : ''; }
+function getPass(){ try{ return localStorage.getItem('tribe-pass')||''; }catch(_){ return ''; } }
+function setPass(v){ try{ localStorage.setItem('tribe-pass',v); }catch(_){} }
+var LIVE = !!API_URL && API_URL.indexOf('{{')<0;
+
+async function post(type, data, pass){
+  var r = await fetch(API_URL, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body: JSON.stringify({type:type, data:data, pass:pass})});
+  return r.json();
+}
+function errText(j){
+  var e = j && j.error;
+  if(e==='passcode') return 'That passcode didn’t match. Ask in the WhatsApp group.';
+  if(e==='busy') return 'Lots of notes at once. Try again in a minute.';
+  if(e==='invalid') return 'Something was missing. Check the title and try again.';
+  return 'That didn’t save. Try again in a moment.';
+}
+function passField(f, id){
+  var l=el('label',null,'Group passcode'); l.htmlFor=id;
+  var p=el('input'); p.id=id; p.type='password'; p.required=true; p.autocomplete='off'; p.value=getPass();
+  f.append(l,p); return p;
+}
+
+// ---------- what we saw ----------
+var SP={"groups": [["birds", "Birds"], ["odonates", "Dragonflies & damselflies"], ["inverts", "Bugs & spiders"], ["reptiles", "Reptiles"], ["amphibians", "Amphibians"], ["mammals", "Mammal signs"], ["plants", "Plants"]], "base": {"birds": ["Black-winged Kite", "Eurasian Kestrel", "Black Baza", "European Roller", "Greater Spotted Eagle", "Bonelli’s Eagle", "Laggar Falcon", "White-eyed Buzzard", "Purple Heron", "Grey Heron", "White-browed Wagtail", "Painted Spurfowl", "Flowerpecker", "Red Avadavat", "Plain Prinia", "Weaver", "Swallow", "House Sparrow", "Myna"], "odonates": ["Ditch Jewel", "Yellow-tailed Ashy Skimmer", "Green Marsh Hawk", "Wandering Glider", "Clubtail", "Golden Dartlet", "Coromandel Marsh Dart"], "inverts": ["Hoverfly", "Scorpion", "Rhene Jumping Spider", "Poltys Spider", "Antlion", "Bagworm Moth", "Soldier Fly Larva"], "reptiles": ["Rock Agama", "Hemidactylus Gecko", "Beddome’s Skink", "Striped Skink", "Star Tortoise", "A snake (?)"], "amphibians": ["Günther’s Toad"], "mammals": ["Rusty-spotted Cat", "Black-naped Hare"], "plants": ["Ceropegia candelabrum", "Flame Lily", "Cycad", "Ground Orchid", "Jasmine", "Capparis grandis", "Lantana"]}};
+var SPK={note:'Note',pattern:'Pattern',family:'Family link',unique:'Unique'};
+var spAdded=[], spNotes=[], spGroup=null, spName=null, spForm=null;
+var catpanel=document.getElementById('catpanel'), namesEl=document.getElementById('names'), spdetail=document.getElementById('spdetail'), spadd=document.getElementById('spadd'), spstatus=document.getElementById('spstatus');
+function spNamesFor(g){ return SP.base[g].map(function(n){return {name:n,added:false}}).concat(spAdded.filter(function(x){return x.group===g}).map(function(x){return {name:x.name,added:true}})); }
+function spCounts(){ document.querySelectorAll('.cnt').forEach(function(c){ c.textContent=spNamesFor(c.dataset.g).length; }); }
+document.querySelectorAll('.cat').forEach(function(b){ b.addEventListener('click',function(){
+  var g=b.dataset.g, on=spGroup!==g;
+  document.querySelectorAll('.cat').forEach(function(x){x.setAttribute('aria-expanded','false')});
+  spGroup=on?g:null; spName=null; spForm=null;
+  if(on) b.setAttribute('aria-expanded','true');
+  spRender();
+});});
+function spRender(){
+  catpanel.hidden=!spGroup; if(!spGroup) return;
+  namesEl.replaceChildren();
+  spNamesFor(spGroup).forEach(function(x){
+    var li=el('li'), b=el('button','nm'+(x.added?' added':''), x.name); b.type='button';
+    var cnt=spNotes.filter(function(n){return n.species===x.name}).length; if(cnt) b.append(el('sup',null,String(cnt)));
+    b.setAttribute('aria-pressed', spName===x.name?'true':'false');
+    b.onclick=function(){ spName=(spName===x.name)?null:x.name; spForm=null; spRender(); };
+    li.append(b); namesEl.append(li);
+  });
+  spdetail.replaceChildren();
+  if(spName){
+    spdetail.append(el('h3',null,spName));
+    var ns=spNotes.filter(function(n){return n.species===spName}).sort(function(a,b){return a.at-b.at});
+    if(ns.length){ var ul=el('ul','spnotes'); ns.forEach(function(n){ var li=el('li','k-'+(SPK[n.kind]?n.kind:'note')); li.append(el('small',null,SPK[n.kind]||'Note'), document.createTextNode(n.text)); ul.append(li); }); spdetail.append(ul); }
+    else spdetail.append(el('p','spempty','No notes yet. Know a family link, a pattern or something unique about it?'));
+  }
+  spadd.replaceChildren();
+  if(!LIVE) return;
+  if(spForm) { spadd.append(spFormEl(spForm)); return; }
+  var a=el('button','add','+ Add a species we missed'); a.type='button'; a.onclick=function(){ spForm='species'; spRender(); }; spadd.append(a);
+  if(spName){ var n=el('button','add','+ Add a note on '+spName); n.type='button'; n.onclick=function(){ spForm='note'; spRender(); }; spadd.append(n); }
+}
+function spFormEl(kind){
+  var f=el('form','nform'); f.style.width='100%';
+  function field(lbl,id,node){ var l=el('label',null,lbl); l.htmlFor=id; node.id=id; f.append(l,node); return node; }
+  var name, k, txt;
+  if(kind==='species'){ name=field('Species name','sp-add-name',el('input')); name.maxLength=80; name.required=true;
+    txt=field('Where or when (optional)','sp-add-where',el('input')); txt.maxLength=200; }
+  else { k=field('Type','sp-note-kind',el('select')); Object.keys(SPK).forEach(function(x){ var o=el('option',null,SPK[x]); o.value=x; k.append(o); });
+    txt=field('Your note on '+spName,'sp-note-text',el('textarea')); txt.rows=2; txt.maxLength=600; txt.required=true; }
+  var pass=passField(f,'sp-pass');
+  var row=el('div','row'), sv=el('button','save', kind==='species'?'Add species':'Add note'), cc=el('button',null,'Cancel');
+  sv.type='submit'; cc.type='button'; cc.onclick=function(){ spForm=null; spRender(); }; row.append(sv,cc); f.append(row);
+  f.addEventListener('submit',async function(e){
+    e.preventDefault(); sv.disabled=true; spstatus.textContent='Saving…';
+    try{
+      var j = kind==='species'
+        ? await post('species',{group:spGroup,name:name.value.trim(),where:txt.value.trim()},pass.value)
+        : await post('spnotes',{species:spName,group:spGroup,kind:k.value,text:txt.value.trim()},pass.value);
+      if(!j.ok){ sv.disabled=false; spstatus.textContent=errText(j); return; }
+      setPass(pass.value);
+      if(kind==='species') spAdded.push({group:spGroup,name:name.value.trim()}), spName=name.value.trim();
+      else spNotes.push({species:spName,kind:k.value,text:txt.value.trim(),at:Date.now()});
+      spstatus.textContent='Saved. Everyone sees it within a minute.'; spForm=null; spCounts(); spRender();
+    }catch(err){ sv.disabled=false; spstatus.textContent=errText(null); }
+  });
+  setTimeout(function(){ (name||txt).focus(); },0);
+  return f;
+}
+
+// ---------- rabbit holes board ----------
+var MEMBERS=['Sargam','Arul','Natasha','Vibish','Vinitha','Irene','Joel','Vishwa','Surya','Sachin'];
+var KINDS={explore:'Exploring',observe:'Observation',question:'Question',debate:'Up for debate',plan:'Coming up'};
+var SEEDS=[
+ {id:'seed-sargam-invasives',member:'Sargam',kind:'explore',at:1,title:'Are invasive plants smarter, or just riding the Sapiens wave?',
+  body:'Not smarter: better matched to land humans disturbed.\nEnemy release: they leave their pests behind.\nNovel weapons: Lantana releases chemicals that local plants never evolved to handle.\nBaker’s “ideal weed”: fast growth, huge seed output, cloning, tolerance of almost anything.\nCrosby’s Ecological Imperialism: settlers arrived with weeds, livestock and germs that took over together. Lantana and vilayati babul reached India the same way.\nPlanning to read: Crosby, Ecological Imperialism.',link:''},
+ {id:'seed-sargam-guides',member:'Sargam',kind:'explore',at:2,title:'Making interactive, personal field guides like this one',body:'This page is the first try. Tell me what to add.',link:''},
+ {id:'seed-arul-snake',member:'Arul',kind:'plan',at:3,title:'Snake walk with the Irulas · 14 Nov',body:'Vadanemmeli, Chennai, 6:30–9 am. With NatureED.',link:'https://www.instagram.com/natureed_emden/'},
+ {id:'seed-arul-mannar',member:'Arul',kind:'plan',at:4,title:'Gulf of Mannar marine explorers · 11–13 Dec',body:'From Tuticorin. Kayaking, snorkelling, mangrove walk. 18+.',link:'https://www.instagram.com/natureed_emden/'}
+];
+var notes=SEEDS.slice(), openIds={}, formFor=null;
+var cols=document.getElementById('cols'), bstatus=document.getElementById('bstatus');
+(function(){ var lg=document.getElementById('legend'); Object.keys(KINDS).forEach(function(k){ var s=el('span'), i=el('i','note k-'+k); i.style.padding='0'; s.append(i,KINDS[k]); lg.append(s); }); })();
+
+function noteEl(n){
+  var d=el('details','note k-'+(KINDS[n.kind]?n.kind:'explore')); if(openIds[n.id]) d.open=true;
+  d.addEventListener('toggle',function(){ openIds[n.id]=d.open; });
+  var s=el('summary'); s.append(el('span','kind',KINDS[n.kind]||'Exploring'), document.createTextNode(n.title||'Untitled')); d.append(s);
+  var b=el('div','body');
+  String(n.body||'').split('\n').filter(Boolean).forEach(function(line){ b.append(el('p',null,line)); });
+  var u=safeUrl(n.link); if(u){ var a=el('a',null,'Open link ↗'); a.href=u; a.target='_blank'; a.rel='noopener'; b.append(a); }
+  d.append(b); return d;
+}
+function formEl(member){
+  var key=member.toLowerCase(), f=el('form','nform');
+  function field(lbl,id,node){ var l=el('label',null,lbl); l.htmlFor=id; node.id=id; f.append(l,node); return node; }
+  var k=field('Type','nf-kind-'+key,el('select'));
+  Object.keys(KINDS).forEach(function(x){ var o=el('option',null,KINDS[x]); o.value=x; k.append(o); });
+  var t=field('Title','nf-title-'+key,el('input')); t.maxLength=120; t.required=true;
+  var bd=field('Details (optional)','nf-body-'+key,el('textarea')); bd.rows=3; bd.maxLength=1500;
+  var ln=field('Link (optional)','nf-link-'+key,el('input')); ln.type='url'; ln.placeholder='https://';
+  var pass=passField(f,'nf-pass-'+key);
+  var row=el('div','row'), sv=el('button','save','Add note'), cc=el('button',null,'Cancel');
+  sv.type='submit'; cc.type='button'; cc.onclick=function(){ formFor=null; render(); };
+  row.append(sv,cc); f.append(row);
+  f.addEventListener('submit',async function(e){
+    e.preventDefault(); if(!t.value.trim()){ t.focus(); return; }
+    var data={member:member,kind:k.value,title:t.value.trim(),body:bd.value.trim(),link:safeUrl(ln.value.trim())};
+    sv.disabled=true; bstatus.textContent='Saving…';
+    try{
+      var j=await post('notes',data,pass.value);
+      if(!j.ok){ sv.disabled=false; bstatus.textContent=errText(j); return; }
+      setPass(pass.value);
+      data.id='local-'+Date.now(); data.at=Date.now(); notes.push(data);
+      bstatus.textContent='Saved. Everyone sees it within a minute.'; formFor=null; render();
+    }catch(err){ sv.disabled=false; bstatus.textContent=errText(null); }
+  });
+  setTimeout(function(){ t.focus(); },0);
+  return f;
+}
+function render(){
+  cols.replaceChildren();
+  MEMBERS.forEach(function(m){
+    var c=el('div','col'); c.append(el('h3',null,m));
+    notes.filter(function(n){return n.member===m}).sort(function(a,b){return (a.at||0)-(b.at||0)}).forEach(function(n){ c.append(noteEl(n)); });
+    if(LIVE){
+      if(formFor===m) c.append(formEl(m));
+      else { var a=el('button','add','+ Add a note'); a.type='button'; a.onclick=function(){ formFor=m; render(); }; c.append(a); }
+    }
+    cols.append(c);
+  });
+}
+render();
+bstatus.textContent = LIVE ? 'Anyone in the batch can add a note. You’ll need the group passcode.' : '';
+
+async function load(){
+  if(!LIVE) return;
+  try{
+    var r=await fetch(API_URL+'?t='+Date.now(),{cache:'no-store'}); var j=await r.json(); if(!j||!j.ok) return;
+    notes=(j.notes||[]).map(function(v){ return {id:String(v.id),member:String(v.member||''),kind:String(v.kind||'explore'),title:String(v.title||''),body:String(v.body||''),link:String(v.link||''),at:+v.at||0}; });
+    spAdded=(j.species||[]).map(function(v){ return {group:String(v.group||''),name:String(v.name||'')}; }).filter(function(x){ return SP.base[x.group]&&x.name; });
+    spNotes=(j.spnotes||[]).map(function(v){ return {species:String(v.species||''),kind:String(v.kind||'note'),text:String(v.text||''),at:+v.at||0}; });
+    spCounts();
+    if(formFor===null) render();
+    if(!spForm) spRender();
+  }catch(e){ /* keep what is on screen */ }
+}
+load(); setInterval(function(){ if(!document.hidden) load(); },30000);
+</script>
+
+
+</body>
+</html>
