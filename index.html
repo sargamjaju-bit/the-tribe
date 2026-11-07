@@ -874,7 +874,7 @@ picker('.lchip','linkdetail',function(b,o){ o.replaceChildren(); o.append(b.data
 
 
 // ---------- live data from the Google Sheet ----------
-var API_URL = '{{API_URL}}';
+var API_URL = 'https://script.google.com/macros/s/AKfycbxqdA3icfCTQLIiPAD6UUrXvepA5cNCBjtjWApwiYKooqvZpO7mp8YX2Q1BQjTq1zJagQ/exec';
 function el(t,c,txt){var e=document.createElement(t); if(c) e.className=c; if(txt!=null) e.textContent=txt; return e;}
 function safeUrl(u){ return /^https?:\/\//i.test(u||'') ? u : ''; }
 function getPass(){ try{ return localStorage.getItem('tribe-pass')||''; }catch(_){ return ''; } }
